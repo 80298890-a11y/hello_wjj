@@ -1,0 +1,11 @@
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/Handshake_generation.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/VehicleStatus_generation.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/RemoteControl_generation.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/handshake_publisher.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/handshake_subscriber.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/vehicle_status_publisher.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/vehicle_status_subscriber.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/remote_control_publisher.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/remote_control_subscriber.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/edit_cache.dir
+/home/wjj/work/project_root/test_fastdds/build/CMakeFiles/rebuild_cache.dir

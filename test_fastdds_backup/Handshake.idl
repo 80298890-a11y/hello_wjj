@@ -1,0 +1,21 @@
+// HandShake.idl - 握手请求与响应数据结构
+// 功能：定义远程控制握手协议的数据格式
+// 注意：使用整数字段直接支持负数值 (-1, 0, 1, 2)
+
+module remote_msgs {
+    @extensibility(APPENDABLE)
+    struct HandshakeRequest {
+        long noa_active;        // noa_active_request: DEACTIVE=-1, NORMAL=0, ACTIVE=1
+        long override_status;   // remote_override_status: DEACTIVE=-1, NORMAL=0, ACTIVE=1  
+        long override_ready;    // remote_override_ready: DEACTIVE=-1, NORMAL=0, ACTIVE=1
+        unsigned long long timestamp;
+    };
+
+    @extensibility(APPENDABLE)
+    struct HandshakeResponse {
+        long noa_active;        // noa_active_response: DEACTIVE=-1, NORMAL=0, ACTIVE=1
+        long override_response; // RemoteOverrideResponse: FAIL=-1, DEACTIVE=0, READY=1, ACTIVE=2
+        boolean current_control_source;
+        unsigned long long timestamp;
+    };
+};

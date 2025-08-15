@@ -1,0 +1,36 @@
+// CloudToVehicle.idl - 云舱到车端控制命令数据结构
+// 功能：定义云舱发送给车端的控制命令数据格式
+
+@extensibility(APPENDABLE)
+struct CloudToVehicle
+{
+    long long sequence_id;                // 序列号，用于消息追踪
+    // 方向盘控制
+    boolean steering_angle_enable;        // 是否启用方向盘角度控制
+    float steering_angle;                 // 方向盘角度（单位：°）
+    
+    // 加速度控制
+    boolean target_acceleration_enable;   // 是否启用目标加速度控制
+    float target_acceleration;            // 目标加速度（单位：m/s²）
+    
+    // 转向灯控制
+    boolean indicator_left_enable;        // 是否启用左转灯控制
+    boolean indicator_left;               // 左转灯控制（true 表示开）
+    boolean indicator_right_enable;       // 是否启用右转灯控制
+    boolean indicator_right;              // 右转灯控制（true 表示开）
+    
+    // 档位控制
+    boolean gear_position_enable;         // 是否启用档位控制
+    long gear_position;                   // 档位控制（0:P，1:N，2:D，3:R）
+    
+    // 手刹控制
+    boolean ebrake_status_enable;         // 是否启用电子手刹控制
+    long ebrake_status;                   // 电子手刹状态（0:OFF，1:ON）
+    
+    // 远程控制状态
+    boolean remote_drive_ready;           // 云舱是否准备好接入
+    boolean remote_drive_takeover_request; // 云舱是否主动请求接管
+    
+    // 时间戳
+    long long timestamp;                  // UTC 毫秒级时间戳
+};

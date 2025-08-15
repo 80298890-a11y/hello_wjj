@@ -1,0 +1,634 @@
+=== CloudToVehicle 发布者程序 ===
+发送频率: 100Hz (每10ms发送一次)
+时间戳精度: 毫秒级别
+按 Ctrl+C 停止程序
+发布者初始化成功
+主题名称: CloudToVehicle
+域ID: 0
+等待订阅者连接...
+等待订阅者连接... (30秒)
+检测到订阅者连接
+检测到订阅者连接
+检测到订阅者连接，开始发送数据...
+[12:03:26.553] 发送第 1 条消息 | a1_timestamp: 1752753806553 毫秒 | 间隔: 0 毫秒
+[12:03:26.564] 发送第 2 条消息 | a1_timestamp: 1752753806564 毫秒 | 间隔: 11 毫秒
+[12:03:26.574] 发送第 3 条消息 | a1_timestamp: 1752753806574 毫秒 | 间隔: 10 毫秒
+[12:03:26.585] 发送第 4 条消息 | a1_timestamp: 1752753806585 毫秒 | 间隔: 11 毫秒
+[12:03:26.596] 发送第 5 条消息 | a1_timestamp: 1752753806596 毫秒 | 间隔: 11 毫秒
+[12:03:26.606] 发送第 6 条消息 | a1_timestamp: 1752753806606 毫秒 | 间隔: 10 毫秒
+[12:03:26.617] 发送第 7 条消息 | a1_timestamp: 1752753806617 毫秒 | 间隔: 11 毫秒
+[12:03:26.628] 发送第 8 条消息 | a1_timestamp: 1752753806628 毫秒 | 间隔: 11 毫秒
+[12:03:26.638] 发送第 9 条消息 | a1_timestamp: 1752753806638 毫秒 | 间隔: 10 毫秒
+[12:03:26.649] 发送第 10 条消息 | a1_timestamp: 1752753806648 毫秒 | 间隔: 11 毫秒
+[12:03:26.649] 发送第 10 条消息:
+a1_timestamp: 1752753806648 ms
+{
+  "sequence_id": 10,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753806648
+}
+----------------------------------------
+[12:03:26.659] 发送第 11 条消息 | a1_timestamp: 1752753806659 毫秒 | 间隔: 10 毫秒
+[12:03:26.670] 发送第 12 条消息 | a1_timestamp: 1752753806670 毫秒 | 间隔: 11 毫秒
+[12:03:26.680] 发送第 13 条消息 | a1_timestamp: 1752753806680 毫秒 | 间隔: 10 毫秒
+[12:03:26.690] 发送第 14 条消息 | a1_timestamp: 1752753806690 毫秒 | 间隔: 10 毫秒
+[12:03:26.701] 发送第 15 条消息 | a1_timestamp: 1752753806701 毫秒 | 间隔: 11 毫秒
+[12:03:26.711] 发送第 16 条消息 | a1_timestamp: 1752753806711 毫秒 | 间隔: 10 毫秒
+[12:03:26.722] 发送第 17 条消息 | a1_timestamp: 1752753806721 毫秒 | 间隔: 11 毫秒
+[12:03:26.732] 发送第 18 条消息 | a1_timestamp: 1752753806732 毫秒 | 间隔: 10 毫秒
+[12:03:26.742] 发送第 19 条消息 | a1_timestamp: 1752753806742 毫秒 | 间隔: 10 毫秒
+[12:03:26.753] 发送第 20 条消息 | a1_timestamp: 1752753806753 毫秒 | 间隔: 11 毫秒
+[12:03:26.753] 发送第 20 条消息:
+a1_timestamp: 1752753806753 ms
+{
+  "sequence_id": 20,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753806753
+}
+----------------------------------------
+[12:03:26.763] 发送第 21 条消息 | a1_timestamp: 1752753806763 毫秒 | 间隔: 10 毫秒
+[12:03:26.774] 发送第 22 条消息 | a1_timestamp: 1752753806774 毫秒 | 间隔: 11 毫秒
+[12:03:26.785] 发送第 23 条消息 | a1_timestamp: 1752753806785 毫秒 | 间隔: 11 毫秒
+[12:03:26.795] 发送第 24 条消息 | a1_timestamp: 1752753806795 毫秒 | 间隔: 10 毫秒
+[12:03:26.806] 发送第 25 条消息 | a1_timestamp: 1752753806806 毫秒 | 间隔: 11 毫秒
+[12:03:26.817] 发送第 26 条消息 | a1_timestamp: 1752753806817 毫秒 | 间隔: 11 毫秒
+[12:03:26.828] 发送第 27 条消息 | a1_timestamp: 1752753806828 毫秒 | 间隔: 11 毫秒
+[12:03:26.839] 发送第 28 条消息 | a1_timestamp: 1752753806839 毫秒 | 间隔: 11 毫秒
+[12:03:26.850] 发送第 29 条消息 | a1_timestamp: 1752753806850 毫秒 | 间隔: 11 毫秒
+[12:03:26.861] 发送第 30 条消息 | a1_timestamp: 1752753806861 毫秒 | 间隔: 11 毫秒
+[12:03:26.861] 发送第 30 条消息:
+a1_timestamp: 1752753806861 ms
+{
+  "sequence_id": 30,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753806861
+}
+----------------------------------------
+[12:03:26.872] 发送第 31 条消息 | a1_timestamp: 1752753806872 毫秒 | 间隔: 11 毫秒
+[12:03:26.883] 发送第 32 条消息 | a1_timestamp: 1752753806883 毫秒 | 间隔: 11 毫秒
+[12:03:26.894] 发送第 33 条消息 | a1_timestamp: 1752753806893 毫秒 | 间隔: 11 毫秒
+[12:03:26.905] 发送第 34 条消息 | a1_timestamp: 1752753806905 毫秒 | 间隔: 11 毫秒
+[12:03:26.916] 发送第 35 条消息 | a1_timestamp: 1752753806916 毫秒 | 间隔: 11 毫秒
+[12:03:26.927] 发送第 36 条消息 | a1_timestamp: 1752753806926 毫秒 | 间隔: 11 毫秒
+[12:03:26.937] 发送第 37 条消息 | a1_timestamp: 1752753806937 毫秒 | 间隔: 10 毫秒
+[12:03:26.948] 发送第 38 条消息 | a1_timestamp: 1752753806948 毫秒 | 间隔: 11 毫秒
+[12:03:26.959] 发送第 39 条消息 | a1_timestamp: 1752753806958 毫秒 | 间隔: 11 毫秒
+[12:03:26.969] 发送第 40 条消息 | a1_timestamp: 1752753806969 毫秒 | 间隔: 10 毫秒
+[12:03:26.969] 发送第 40 条消息:
+a1_timestamp: 1752753806969 ms
+{
+  "sequence_id": 40,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753806969
+}
+----------------------------------------
+[12:03:26.980] 发送第 41 条消息 | a1_timestamp: 1752753806980 毫秒 | 间隔: 11 毫秒
+[12:03:26.991] 发送第 42 条消息 | a1_timestamp: 1752753806991 毫秒 | 间隔: 11 毫秒
+[12:03:27.002] 发送第 43 条消息 | a1_timestamp: 1752753807002 毫秒 | 间隔: 11 毫秒
+[12:03:27.013] 发送第 44 条消息 | a1_timestamp: 1752753807013 毫秒 | 间隔: 11 毫秒
+[12:03:27.024] 发送第 45 条消息 | a1_timestamp: 1752753807023 毫秒 | 间隔: 11 毫秒
+[12:03:27.034] 发送第 46 条消息 | a1_timestamp: 1752753807034 毫秒 | 间隔: 10 毫秒
+[12:03:27.045] 发送第 47 条消息 | a1_timestamp: 1752753807045 毫秒 | 间隔: 11 毫秒
+[12:03:27.056] 发送第 48 条消息 | a1_timestamp: 1752753807056 毫秒 | 间隔: 11 毫秒
+[12:03:27.066] 发送第 49 条消息 | a1_timestamp: 1752753807066 毫秒 | 间隔: 10 毫秒
+[12:03:27.077] 发送第 50 条消息 | a1_timestamp: 1752753807076 毫秒 | 间隔: 11 毫秒
+[12:03:27.077] 发送第 50 条消息:
+a1_timestamp: 1752753807076 ms
+{
+  "sequence_id": 50,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807076
+}
+----------------------------------------
+[12:03:27.087] 发送第 51 条消息 | a1_timestamp: 1752753807087 毫秒 | 间隔: 10 毫秒
+[12:03:27.098] 发送第 52 条消息 | a1_timestamp: 1752753807097 毫秒 | 间隔: 11 毫秒
+[12:03:27.108] 发送第 53 条消息 | a1_timestamp: 1752753807108 毫秒 | 间隔: 10 毫秒
+[12:03:27.119] 发送第 54 条消息 | a1_timestamp: 1752753807119 毫秒 | 间隔: 11 毫秒
+[12:03:27.129] 发送第 55 条消息 | a1_timestamp: 1752753807129 毫秒 | 间隔: 10 毫秒
+[12:03:27.140] 发送第 56 条消息 | a1_timestamp: 1752753807140 毫秒 | 间隔: 11 毫秒
+[12:03:27.151] 发送第 57 条消息 | a1_timestamp: 1752753807151 毫秒 | 间隔: 11 毫秒
+[12:03:27.162] 发送第 58 条消息 | a1_timestamp: 1752753807162 毫秒 | 间隔: 11 毫秒
+[12:03:27.173] 发送第 59 条消息 | a1_timestamp: 1752753807172 毫秒 | 间隔: 11 毫秒
+[12:03:27.183] 发送第 60 条消息 | a1_timestamp: 1752753807183 毫秒 | 间隔: 10 毫秒
+[12:03:27.183] 发送第 60 条消息:
+a1_timestamp: 1752753807183 ms
+{
+  "sequence_id": 60,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807183
+}
+----------------------------------------
+[12:03:27.194] 发送第 61 条消息 | a1_timestamp: 1752753807194 毫秒 | 间隔: 11 毫秒
+[12:03:27.205] 发送第 62 条消息 | a1_timestamp: 1752753807205 毫秒 | 间隔: 11 毫秒
+[12:03:27.216] 发送第 63 条消息 | a1_timestamp: 1752753807216 毫秒 | 间隔: 11 毫秒
+[12:03:27.227] 发送第 64 条消息 | a1_timestamp: 1752753807227 毫秒 | 间隔: 11 毫秒
+[12:03:27.238] 发送第 65 条消息 | a1_timestamp: 1752753807238 毫秒 | 间隔: 11 毫秒
+[12:03:27.249] 发送第 66 条消息 | a1_timestamp: 1752753807249 毫秒 | 间隔: 11 毫秒
+[12:03:27.260] 发送第 67 条消息 | a1_timestamp: 1752753807259 毫秒 | 间隔: 11 毫秒
+[12:03:27.270] 发送第 68 条消息 | a1_timestamp: 1752753807270 毫秒 | 间隔: 10 毫秒
+[12:03:27.282] 发送第 69 条消息 | a1_timestamp: 1752753807281 毫秒 | 间隔: 12 毫秒
+[12:03:27.293] 发送第 70 条消息 | a1_timestamp: 1752753807293 毫秒 | 间隔: 11 毫秒
+[12:03:27.293] 发送第 70 条消息:
+a1_timestamp: 1752753807293 ms
+{
+  "sequence_id": 70,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807293
+}
+----------------------------------------
+[12:03:27.303] 发送第 71 条消息 | a1_timestamp: 1752753807303 毫秒 | 间隔: 10 毫秒
+[12:03:27.314] 发送第 72 条消息 | a1_timestamp: 1752753807314 毫秒 | 间隔: 11 毫秒
+[12:03:27.325] 发送第 73 条消息 | a1_timestamp: 1752753807325 毫秒 | 间隔: 11 毫秒
+[12:03:27.336] 发送第 74 条消息 | a1_timestamp: 1752753807336 毫秒 | 间隔: 11 毫秒
+[12:03:27.346] 发送第 75 条消息 | a1_timestamp: 1752753807346 毫秒 | 间隔: 10 毫秒
+[12:03:27.357] 发送第 76 条消息 | a1_timestamp: 1752753807357 毫秒 | 间隔: 11 毫秒
+[12:03:27.368] 发送第 77 条消息 | a1_timestamp: 1752753807368 毫秒 | 间隔: 11 毫秒
+[12:03:27.379] 发送第 78 条消息 | a1_timestamp: 1752753807379 毫秒 | 间隔: 11 毫秒
+[12:03:27.390] 发送第 79 条消息 | a1_timestamp: 1752753807390 毫秒 | 间隔: 11 毫秒
+[12:03:27.401] 发送第 80 条消息 | a1_timestamp: 1752753807401 毫秒 | 间隔: 11 毫秒
+[12:03:27.401] 发送第 80 条消息:
+a1_timestamp: 1752753807401 ms
+{
+  "sequence_id": 80,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807401
+}
+----------------------------------------
+[12:03:27.412] 发送第 81 条消息 | a1_timestamp: 1752753807412 毫秒 | 间隔: 11 毫秒
+[12:03:27.423] 发送第 82 条消息 | a1_timestamp: 1752753807423 毫秒 | 间隔: 11 毫秒
+[12:03:27.434] 发送第 83 条消息 | a1_timestamp: 1752753807433 毫秒 | 间隔: 11 毫秒
+[12:03:27.444] 发送第 84 条消息 | a1_timestamp: 1752753807444 毫秒 | 间隔: 10 毫秒
+[12:03:27.455] 发送第 85 条消息 | a1_timestamp: 1752753807454 毫秒 | 间隔: 11 毫秒
+[12:03:27.466] 发送第 86 条消息 | a1_timestamp: 1752753807465 毫秒 | 间隔: 11 毫秒
+[12:03:27.478] 发送第 87 条消息 | a1_timestamp: 1752753807478 毫秒 | 间隔: 12 毫秒
+[12:03:27.489] 发送第 88 条消息 | a1_timestamp: 1752753807489 毫秒 | 间隔: 11 毫秒
+[12:03:27.500] 发送第 89 条消息 | a1_timestamp: 1752753807500 毫秒 | 间隔: 11 毫秒
+[12:03:27.511] 发送第 90 条消息 | a1_timestamp: 1752753807510 毫秒 | 间隔: 11 毫秒
+[12:03:27.511] 发送第 90 条消息:
+a1_timestamp: 1752753807510 ms
+{
+  "sequence_id": 90,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807510
+}
+----------------------------------------
+[12:03:27.521] 发送第 91 条消息 | a1_timestamp: 1752753807521 毫秒 | 间隔: 10 毫秒
+[12:03:27.532] 发送第 92 条消息 | a1_timestamp: 1752753807532 毫秒 | 间隔: 11 毫秒
+[12:03:27.542] 发送第 93 条消息 | a1_timestamp: 1752753807542 毫秒 | 间隔: 10 毫秒
+[12:03:27.553] 发送第 94 条消息 | a1_timestamp: 1752753807553 毫秒 | 间隔: 11 毫秒
+[12:03:27.564] 发送第 95 条消息 | a1_timestamp: 1752753807563 毫秒 | 间隔: 11 毫秒
+[12:03:27.574] 发送第 96 条消息 | a1_timestamp: 1752753807574 毫秒 | 间隔: 10 毫秒
+[12:03:27.585] 发送第 97 条消息 | a1_timestamp: 1752753807584 毫秒 | 间隔: 11 毫秒
+[12:03:27.595] 发送第 98 条消息 | a1_timestamp: 1752753807595 毫秒 | 间隔: 10 毫秒
+[12:03:27.606] 发送第 99 条消息 | a1_timestamp: 1752753807606 毫秒 | 间隔: 11 毫秒
+[12:03:27.617] 发送第 100 条消息 | a1_timestamp: 1752753807617 毫秒 | 间隔: 11 毫秒
+[12:03:27.617] 发送第 100 条消息:
+a1_timestamp: 1752753807617 ms
+{
+  "sequence_id": 100,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807617
+}
+----------------------------------------
+[12:03:27.628] 发送第 101 条消息 | a1_timestamp: 1752753807628 毫秒 | 间隔: 11 毫秒
+[12:03:27.639] 发送第 102 条消息 | a1_timestamp: 1752753807639 毫秒 | 间隔: 11 毫秒
+[12:03:27.650] 发送第 103 条消息 | a1_timestamp: 1752753807649 毫秒 | 间隔: 11 毫秒
+[12:03:27.661] 发送第 104 条消息 | a1_timestamp: 1752753807661 毫秒 | 间隔: 11 毫秒
+[12:03:27.672] 发送第 105 条消息 | a1_timestamp: 1752753807672 毫秒 | 间隔: 11 毫秒
+[12:03:27.683] 发送第 106 条消息 | a1_timestamp: 1752753807683 毫秒 | 间隔: 11 毫秒
+[12:03:27.694] 发送第 107 条消息 | a1_timestamp: 1752753807693 毫秒 | 间隔: 11 毫秒
+[12:03:27.705] 发送第 108 条消息 | a1_timestamp: 1752753807705 毫秒 | 间隔: 11 毫秒
+[12:03:27.716] 发送第 109 条消息 | a1_timestamp: 1752753807716 毫秒 | 间隔: 11 毫秒
+[12:03:27.727] 发送第 110 条消息 | a1_timestamp: 1752753807727 毫秒 | 间隔: 11 毫秒
+[12:03:27.727] 发送第 110 条消息:
+a1_timestamp: 1752753807727 ms
+{
+  "sequence_id": 110,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807727
+}
+----------------------------------------
+[12:03:27.738] 发送第 111 条消息 | a1_timestamp: 1752753807738 毫秒 | 间隔: 11 毫秒
+[12:03:27.749] 发送第 112 条消息 | a1_timestamp: 1752753807749 毫秒 | 间隔: 11 毫秒
+[12:03:27.760] 发送第 113 条消息 | a1_timestamp: 1752753807760 毫秒 | 间隔: 11 毫秒
+[12:03:27.771] 发送第 114 条消息 | a1_timestamp: 1752753807771 毫秒 | 间隔: 11 毫秒
+[12:03:27.782] 发送第 115 条消息 | a1_timestamp: 1752753807782 毫秒 | 间隔: 11 毫秒
+[12:03:27.793] 发送第 116 条消息 | a1_timestamp: 1752753807793 毫秒 | 间隔: 11 毫秒
+[12:03:27.804] 发送第 117 条消息 | a1_timestamp: 1752753807804 毫秒 | 间隔: 11 毫秒
+[12:03:27.815] 发送第 118 条消息 | a1_timestamp: 1752753807815 毫秒 | 间隔: 11 毫秒
+[12:03:27.826] 发送第 119 条消息 | a1_timestamp: 1752753807826 毫秒 | 间隔: 11 毫秒
+[12:03:27.838] 发送第 120 条消息 | a1_timestamp: 1752753807837 毫秒 | 间隔: 12 毫秒
+[12:03:27.838] 发送第 120 条消息:
+a1_timestamp: 1752753807837 ms
+{
+  "sequence_id": 120,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807837
+}
+----------------------------------------
+[12:03:27.850] 发送第 121 条消息 | a1_timestamp: 1752753807850 毫秒 | 间隔: 12 毫秒
+[12:03:27.861] 发送第 122 条消息 | a1_timestamp: 1752753807861 毫秒 | 间隔: 11 毫秒
+[12:03:27.872] 发送第 123 条消息 | a1_timestamp: 1752753807872 毫秒 | 间隔: 11 毫秒
+[12:03:27.883] 发送第 124 条消息 | a1_timestamp: 1752753807883 毫秒 | 间隔: 11 毫秒
+[12:03:27.894] 发送第 125 条消息 | a1_timestamp: 1752753807894 毫秒 | 间隔: 11 毫秒
+[12:03:27.905] 发送第 126 条消息 | a1_timestamp: 1752753807905 毫秒 | 间隔: 11 毫秒
+[12:03:27.916] 发送第 127 条消息 | a1_timestamp: 1752753807916 毫秒 | 间隔: 11 毫秒
+[12:03:27.927] 发送第 128 条消息 | a1_timestamp: 1752753807926 毫秒 | 间隔: 11 毫秒
+[12:03:27.937] 发送第 129 条消息 | a1_timestamp: 1752753807937 毫秒 | 间隔: 10 毫秒
+[12:03:27.948] 发送第 130 条消息 | a1_timestamp: 1752753807948 毫秒 | 间隔: 11 毫秒
+[12:03:27.948] 发送第 130 条消息:
+a1_timestamp: 1752753807948 ms
+{
+  "sequence_id": 130,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753807948
+}
+----------------------------------------
+[12:03:27.959] 发送第 131 条消息 | a1_timestamp: 1752753807959 毫秒 | 间隔: 11 毫秒
+[12:03:27.969] 发送第 132 条消息 | a1_timestamp: 1752753807969 毫秒 | 间隔: 10 毫秒
+[12:03:27.980] 发送第 133 条消息 | a1_timestamp: 1752753807979 毫秒 | 间隔: 11 毫秒
+[12:03:27.990] 发送第 134 条消息 | a1_timestamp: 1752753807990 毫秒 | 间隔: 10 毫秒
+[12:03:28.000] 发送第 135 条消息 | a1_timestamp: 1752753808000 毫秒 | 间隔: 10 毫秒
+[12:03:28.011] 发送第 136 条消息 | a1_timestamp: 1752753808011 毫秒 | 间隔: 11 毫秒
+[12:03:28.022] 发送第 137 条消息 | a1_timestamp: 1752753808021 毫秒 | 间隔: 11 毫秒
+[12:03:28.032] 发送第 138 条消息 | a1_timestamp: 1752753808032 毫秒 | 间隔: 10 毫秒
+[12:03:28.043] 发送第 139 条消息 | a1_timestamp: 1752753808043 毫秒 | 间隔: 11 毫秒
+[12:03:28.054] 发送第 140 条消息 | a1_timestamp: 1752753808054 毫秒 | 间隔: 11 毫秒
+[12:03:28.054] 发送第 140 条消息:
+a1_timestamp: 1752753808054 ms
+{
+  "sequence_id": 140,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808054
+}
+----------------------------------------
+[12:03:28.065] 发送第 141 条消息 | a1_timestamp: 1752753808065 毫秒 | 间隔: 11 毫秒
+[12:03:28.076] 发送第 142 条消息 | a1_timestamp: 1752753808075 毫秒 | 间隔: 11 毫秒
+[12:03:28.086] 发送第 143 条消息 | a1_timestamp: 1752753808086 毫秒 | 间隔: 10 毫秒
+[12:03:28.097] 发送第 144 条消息 | a1_timestamp: 1752753808097 毫秒 | 间隔: 11 毫秒
+[12:03:28.108] 发送第 145 条消息 | a1_timestamp: 1752753808108 毫秒 | 间隔: 11 毫秒
+[12:03:28.119] 发送第 146 条消息 | a1_timestamp: 1752753808119 毫秒 | 间隔: 11 毫秒
+[12:03:28.131] 发送第 147 条消息 | a1_timestamp: 1752753808130 毫秒 | 间隔: 12 毫秒
+[12:03:28.141] 发送第 148 条消息 | a1_timestamp: 1752753808141 毫秒 | 间隔: 10 毫秒
+[12:03:28.152] 发送第 149 条消息 | a1_timestamp: 1752753808152 毫秒 | 间隔: 11 毫秒
+[12:03:28.163] 发送第 150 条消息 | a1_timestamp: 1752753808162 毫秒 | 间隔: 11 毫秒
+[12:03:28.163] 发送第 150 条消息:
+a1_timestamp: 1752753808162 ms
+{
+  "sequence_id": 150,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808162
+}
+----------------------------------------
+[12:03:28.174] 发送第 151 条消息 | a1_timestamp: 1752753808173 毫秒 | 间隔: 11 毫秒
+[12:03:28.184] 发送第 152 条消息 | a1_timestamp: 1752753808184 毫秒 | 间隔: 10 毫秒
+[12:03:28.195] 发送第 153 条消息 | a1_timestamp: 1752753808195 毫秒 | 间隔: 11 毫秒
+[12:03:28.206] 发送第 154 条消息 | a1_timestamp: 1752753808206 毫秒 | 间隔: 11 毫秒
+[12:03:28.217] 发送第 155 条消息 | a1_timestamp: 1752753808216 毫秒 | 间隔: 11 毫秒
+[12:03:28.228] 发送第 156 条消息 | a1_timestamp: 1752753808227 毫秒 | 间隔: 11 毫秒
+[12:03:28.239] 发送第 157 条消息 | a1_timestamp: 1752753808238 毫秒 | 间隔: 11 毫秒
+[12:03:28.250] 发送第 158 条消息 | a1_timestamp: 1752753808249 毫秒 | 间隔: 11 毫秒
+[12:03:28.260] 发送第 159 条消息 | a1_timestamp: 1752753808260 毫秒 | 间隔: 10 毫秒
+[12:03:28.271] 发送第 160 条消息 | a1_timestamp: 1752753808271 毫秒 | 间隔: 11 毫秒
+[12:03:28.271] 发送第 160 条消息:
+a1_timestamp: 1752753808271 ms
+{
+  "sequence_id": 160,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808271
+}
+----------------------------------------
+[12:03:28.282] 发送第 161 条消息 | a1_timestamp: 1752753808282 毫秒 | 间隔: 11 毫秒
+[12:03:28.293] 发送第 162 条消息 | a1_timestamp: 1752753808293 毫秒 | 间隔: 11 毫秒
+[12:03:28.304] 发送第 163 条消息 | a1_timestamp: 1752753808304 毫秒 | 间隔: 11 毫秒
+[12:03:28.315] 发送第 164 条消息 | a1_timestamp: 1752753808315 毫秒 | 间隔: 11 毫秒
+[12:03:28.326] 发送第 165 条消息 | a1_timestamp: 1752753808325 毫秒 | 间隔: 11 毫秒
+[12:03:28.337] 发送第 166 条消息 | a1_timestamp: 1752753808336 毫秒 | 间隔: 10 毫秒
+[12:03:28.347] 发送第 167 条消息 | a1_timestamp: 1752753808347 毫秒 | 间隔: 11 毫秒
+[12:03:28.358] 发送第 168 条消息 | a1_timestamp: 1752753808357 毫秒 | 间隔: 11 毫秒
+[12:03:28.369] 发送第 169 条消息 | a1_timestamp: 1752753808368 毫秒 | 间隔: 11 毫秒
+[12:03:28.380] 发送第 170 条消息 | a1_timestamp: 1752753808380 毫秒 | 间隔: 11 毫秒
+[12:03:28.380] 发送第 170 条消息:
+a1_timestamp: 1752753808380 ms
+{
+  "sequence_id": 170,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808380
+}
+----------------------------------------
+[12:03:28.391] 发送第 171 条消息 | a1_timestamp: 1752753808391 毫秒 | 间隔: 11 毫秒
+[12:03:28.401] 发送第 172 条消息 | a1_timestamp: 1752753808401 毫秒 | 间隔: 10 毫秒
+[12:03:28.412] 发送第 173 条消息 | a1_timestamp: 1752753808412 毫秒 | 间隔: 11 毫秒
+[12:03:28.423] 发送第 174 条消息 | a1_timestamp: 1752753808423 毫秒 | 间隔: 11 毫秒
+[12:03:28.434] 发送第 175 条消息 | a1_timestamp: 1752753808434 毫秒 | 间隔: 11 毫秒
+[12:03:28.445] 发送第 176 条消息 | a1_timestamp: 1752753808444 毫秒 | 间隔: 11 毫秒
+[12:03:28.455] 发送第 177 条消息 | a1_timestamp: 1752753808455 毫秒 | 间隔: 10 毫秒
+[12:03:28.466] 发送第 178 条消息 | a1_timestamp: 1752753808466 毫秒 | 间隔: 11 毫秒
+[12:03:28.477] 发送第 179 条消息 | a1_timestamp: 1752753808477 毫秒 | 间隔: 11 毫秒
+[12:03:28.488] 发送第 180 条消息 | a1_timestamp: 1752753808488 毫秒 | 间隔: 11 毫秒
+[12:03:28.488] 发送第 180 条消息:
+a1_timestamp: 1752753808488 ms
+{
+  "sequence_id": 180,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808488
+}
+----------------------------------------
+[12:03:28.499] 发送第 181 条消息 | a1_timestamp: 1752753808499 毫秒 | 间隔: 11 毫秒
+[12:03:28.510] 发送第 182 条消息 | a1_timestamp: 1752753808509 毫秒 | 间隔: 11 毫秒
+[12:03:28.521] 发送第 183 条消息 | a1_timestamp: 1752753808521 毫秒 | 间隔: 11 毫秒
+[12:03:28.532] 发送第 184 条消息 | a1_timestamp: 1752753808532 毫秒 | 间隔: 11 毫秒
+[12:03:28.543] 发送第 185 条消息 | a1_timestamp: 1752753808542 毫秒 | 间隔: 11 毫秒
+[12:03:28.553] 发送第 186 条消息 | a1_timestamp: 1752753808553 毫秒 | 间隔: 10 毫秒
+[12:03:28.564] 发送第 187 条消息 | a1_timestamp: 1752753808564 毫秒 | 间隔: 11 毫秒
+[12:03:28.575] 发送第 188 条消息 | a1_timestamp: 1752753808575 毫秒 | 间隔: 11 毫秒
+[12:03:28.586] 发送第 189 条消息 | a1_timestamp: 1752753808586 毫秒 | 间隔: 11 毫秒
+[12:03:28.597] 发送第 190 条消息 | a1_timestamp: 1752753808597 毫秒 | 间隔: 11 毫秒
+[12:03:28.597] 发送第 190 条消息:
+a1_timestamp: 1752753808597 ms
+{
+  "sequence_id": 190,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808597
+}
+----------------------------------------
+[12:03:28.608] 发送第 191 条消息 | a1_timestamp: 1752753808608 毫秒 | 间隔: 11 毫秒
+[12:03:28.619] 发送第 192 条消息 | a1_timestamp: 1752753808619 毫秒 | 间隔: 11 毫秒
+[12:03:28.630] 发送第 193 条消息 | a1_timestamp: 1752753808629 毫秒 | 间隔: 11 毫秒
+[12:03:28.641] 发送第 194 条消息 | a1_timestamp: 1752753808640 毫秒 | 间隔: 11 毫秒
+[12:03:28.651] 发送第 195 条消息 | a1_timestamp: 1752753808651 毫秒 | 间隔: 10 毫秒
+[12:03:28.662] 发送第 196 条消息 | a1_timestamp: 1752753808662 毫秒 | 间隔: 11 毫秒
+[12:03:28.674] 发送第 197 条消息 | a1_timestamp: 1752753808673 毫秒 | 间隔: 12 毫秒
+[12:03:28.684] 发送第 198 条消息 | a1_timestamp: 1752753808684 毫秒 | 间隔: 10 毫秒
+[12:03:28.695] 发送第 199 条消息 | a1_timestamp: 1752753808695 毫秒 | 间隔: 11 毫秒
+[12:03:28.706] 发送第 200 条消息 | a1_timestamp: 1752753808705 毫秒 | 间隔: 11 毫秒
+[12:03:28.706] 发送第 200 条消息:
+a1_timestamp: 1752753808705 ms
+{
+  "sequence_id": 200,
+  "steering_angle_enable": true,
+  "steering_angle": 0,
+  "target_acceleration_enable": true,
+  "target_acceleration": 0,
+  "indicator_left_enable": false,
+  "indicator_left": false,
+  "indicator_right_enable": false,
+  "indicator_right": false,
+  "gear_position_enable": false,
+  "gear_position": 0,
+  "ebrake_status_enable": false,
+  "ebrake_status": 0,
+  "remote_drive_ready": false,
+  "remote_drive_takeover_request": false,
+  "timestamp": 1752753808705
+}
+----------------------------------------
+发送完成，共发送 200 条消息
+程序结束

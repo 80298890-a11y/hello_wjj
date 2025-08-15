@@ -1,0 +1,3 @@
+[2025-08-14 16:55:21.304] MQTT发送成功 [/vehicle/vehicle_status] {"control_mode":2,"gear_position":1,"heading":45,"position_latitude":39.916,"position_longitude":116.397,"power_mode":2,"speed":60,"vehicle_id":12345,"mqtt_send_timestamp":1755161721304}
+[2025-08-14 16:55:21.314] MQTT发送成功 [/vehicle/vehicle_status] {"control_mode":2,"gear_position":1,"heading":45,"position_latitude":39.916,"position_longitude":116.397,"power_mode":2,"speed":60.1,"vehicle_id":12346,"mqtt_send_timestamp":1755161721313}
+[2025-08-14 16:55:21.324] MQTT发送成功 [/vehicle/vehicle_status] {"control_mode":2,"gear_position":1,"heading":45,"position_latitude":39.916,"position_longitude":116.397,"power_mode":2,"speed":60.2,"vehicle_id":12347,"mqtt_send_timestamp":1755161721324}

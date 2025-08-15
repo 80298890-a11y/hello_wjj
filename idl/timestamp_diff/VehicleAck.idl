@@ -1,0 +1,38 @@
+// VehicleAck.idl - 车端到云舱确认消息数据结构
+// 功能：车端接收到云舱控制命令后的确认回复
+
+@extensibility(APPENDABLE)
+struct VehicleAck
+{
+    long long sequence_id;                // 序列号，与 Topic 1 对应
+    string status;                        // 状态信息
+    
+    // 方向盘控制确认
+    boolean steering_angle_enable;        // 是否启用方向盘角度控制
+    float steering_angle;                 // 方向盘角度（单位：°）
+    
+    // 加速度控制确认
+    boolean target_acceleration_enable;   // 是否启用目标加速度控制
+    float target_acceleration;            // 目标加速度（单位：m/s²）
+    
+    // 转向灯控制确认
+    boolean indicator_left_enable;        // 是否启用左转灯控制
+    boolean indicator_left;               // 左转灯控制（true 表示开）
+    boolean indicator_right_enable;       // 是否启用右转灯控制
+    boolean indicator_right;              // 右转灯控制（true 表示开）
+    
+    // 档位控制确认
+    boolean gear_position_enable;         // 是否启用档位控制
+    int32 gear_position;                  // 档位控制（0:P，1:N，2:D，3:R）
+    
+    // 电子手刹控制确认
+    boolean ebrake_status_enable;         // 是否启用电子手刹控制
+    int32 ebrake_status;                  // 电子手刹状态（0:OFF，1:ON）
+    
+    // 远程驾驶状态确认
+    boolean remote_drive_ready;           // 云舱是否准备好接入
+    boolean remote_drive_takeover_request; // 云舱是否主动请求接管
+    
+    long long timestamp;                  // UTC 毫秒级时间戳
+    long long ack_timestamp_ns;           // B端发送确认时的纳秒时间戳
+};

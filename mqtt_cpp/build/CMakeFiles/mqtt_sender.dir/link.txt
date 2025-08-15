@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mqtt_sender.dir/mqtt_sender.cpp.o -o mqtt_sender  /usr/lib/aarch64-linux-gnu/libjsoncpp.so /usr/lib/aarch64-linux-gnu/libmosquitto.so 

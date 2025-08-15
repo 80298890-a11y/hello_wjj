@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "/home/wjj/work/zhijiayun/generated_types/Handshake/Handshake.hpp"
+  "/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakePubSubTypes.cxx"
+  "/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakeTypeObjectSupport.cxx"
+  "/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControl.hpp"
+  "/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx"
+  "/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx"
+  "/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatus.hpp"
+  "/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx"
+  "/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakePubSubTypes.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakePubSubTypes.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o"
+  "CMakeFiles/fastdds_lib.dir/home/wjj/work/zhijiayun/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o.d"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o.d"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o.d"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o"
+  "CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o.d"
+  "CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o"
+  "CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o.d"
+  "CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o"
+  "CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o.d"
+  "libfastdds_lib.a"
+  "libfastdds_lib.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/fastdds_lib.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

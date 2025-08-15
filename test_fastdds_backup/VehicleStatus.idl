@@ -1,0 +1,42 @@
+// VehicleStatus.idl - 车辆状态数据结构
+// 功能：定义车辆当前状态信息的数据格式
+
+module remote_msgs {
+    enum control_mode {
+        Auto,            
+        Manual,          
+        Remote           
+    };
+
+    enum PowerModeType {
+        POWERMODE_OFF,   
+        POWERMODE_ACC,   
+        POWERMODE_ON,    
+        POWERMODE_CRANK  
+    };
+
+    @extensibility(APPENDABLE)
+    struct VehicleStatus {
+        unsigned long vehicle_id;
+        control_mode current_control_mode;
+        float position_longitude;
+        float position_latitude;
+        float position_altitude;
+        float speed;
+        float yawrate;
+        float gear_position;
+        float acceleration;
+        float heading;
+        float steering_angle;
+        float wheel_angle;
+        long ebrake_status;
+        long indicator_left;
+        long indicator_right;
+        PowerModeType power_mode;
+        boolean brake_light_status;
+        boolean high_beam_status;
+        boolean low_beam_status;
+        boolean emergency_light_status;
+        unsigned long long timestamp;
+    };
+};
