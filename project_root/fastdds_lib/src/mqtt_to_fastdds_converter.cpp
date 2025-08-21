@@ -9,7 +9,7 @@
 #include <sstream>
 #include <thread>
 
-// 预定义的MQTT主题列表
+// 预定义的MQTT主题列表 - 生产环境必要主题
 const std::vector<std::string> MQTTToFastDDSConverter::DEFAULT_MQTT_TOPICS = {
     "/handshake/request",
     "/handshake/response", 
@@ -42,23 +42,23 @@ bool MQTTToFastDDSConverter::init() {
     
     // 1. 初始化FastDDS发布者
     if (!FastDDSPublisher::init()) {
-        std::cerr << "❌ FastDDS发布者初始化失败" << std::endl;
+        std::cerr << "[ERROR] FastDDS发布者初始化失败" << std::endl;
         return false;
     }
     
     // 2. 初始化MQTT客户端
     if (!initMQTT()) {
-        std::cerr << "❌ MQTT客户端初始化失败" << std::endl;
+        std::cerr << "[ERROR] MQTT客户端初始化失败" << std::endl;
         return false;
     }
     
     // 3. 订阅所有MQTT主题
     if (!subscribeAllMQTTTopics()) {
-        std::cerr << "❌ MQTT主题订阅失败" << std::endl;
+        std::cerr << "[ERROR] MQTT主题订阅失败" << std::endl;
         return false;
     }
     
-    std::cout << "✅ MQTT到FastDDS转换器初始化成功" << std::endl;
+    std::cout << "[SUCCESS] MQTT到FastDDS转换器初始化成功" << std::endl;
     return true;
 }
 
@@ -68,7 +68,7 @@ void MQTTToFastDDSConverter::cleanup() {
     cleanupMQTT();
     FastDDSPublisher::cleanup();
     
-    std::cout << "✅ MQTT到FastDDS转换器清理完成" << std::endl;
+    std::cout << "[CLEANUP] MQTT到FastDDS转换器清理完成" << std::endl;
 }
 
 // =========================== MQTT初始化和清理 ===========================
@@ -82,7 +82,7 @@ bool MQTTToFastDDSConverter::initMQTT() {
     // 创建MQTT客户端实例
     mqtt_client_ = mosquitto_new(client_id_.c_str(), true, this);
     if (!mqtt_client_) {
-        std::cerr << "❌ 创建MQTT客户端失败" << std::endl;
+        std::cerr << "[ERROR] 创建MQTT客户端失败" << std::endl;
         return false;
     }
     
@@ -95,14 +95,14 @@ bool MQTTToFastDDSConverter::initMQTT() {
     // 连接到MQTT服务器
     int result = mosquitto_connect(mqtt_client_, mqtt_host_.c_str(), mqtt_port_, 60);
     if (result != MOSQ_ERR_SUCCESS) {
-        std::cerr << "❌ 连接MQTT服务器失败: " << mosquitto_strerror(result) << std::endl;
+        std::cerr << "[ERROR] 连接MQTT服务器失败: " << mosquitto_strerror(result) << std::endl;
         return false;
     }
     
     // 启动MQTT网络处理循环
     result = mosquitto_loop_start(mqtt_client_);
     if (result != MOSQ_ERR_SUCCESS) {
-        std::cerr << "❌ 启动MQTT循环失败: " << mosquitto_strerror(result) << std::endl;
+        std::cerr << "[ERROR] 启动MQTT循环失败: " << mosquitto_strerror(result) << std::endl;
         return false;
     }
     
@@ -112,11 +112,11 @@ bool MQTTToFastDDSConverter::initMQTT() {
     }
     
     if (!mqtt_connected_) {
-        std::cerr << "❌ MQTT连接超时" << std::endl;
+        std::cerr << "[ERROR] MQTT连接超时" << std::endl;
         return false;
     }
     
-    std::cout << "✅ MQTT客户端初始化成功，连接到 " << mqtt_host_ << ":" << mqtt_port_ << std::endl;
+    std::cout << "[SUCCESS] MQTT客户端初始化成功，连接到 " << mqtt_host_ << ":" << mqtt_port_ << std::endl;
     return true;
 }
 
@@ -141,33 +141,37 @@ void MQTTToFastDDSConverter::cleanupMQTT() {
 
 bool MQTTToFastDDSConverter::subscribeMQTTTopic(const std::string& topic, int qos) {
     if (!mqtt_client_) {
-        std::cerr << "❌ MQTT客户端未初始化" << std::endl;
+        std::cerr << "[ERROR] MQTT客户端未初始化" << std::endl;
         return false;
     }
+    
+    std::cout << "[PROC] 尝试订阅MQTT主题: " << topic << " (QoS: " << qos << ")" << std::endl;
     
     int result = mosquitto_subscribe(mqtt_client_, nullptr, topic.c_str(), qos);
     if (result != MOSQ_ERR_SUCCESS) {
-        std::cerr << "❌ 订阅MQTT主题失败 [" << topic << "]: " << mosquitto_strerror(result) << std::endl;
+        std::cerr << "[ERROR] 订阅MQTT主题失败 [" << topic << "]: " << mosquitto_strerror(result) << " (错误代码: " << result << ")" << std::endl;
         return false;
     }
     
-    std::cout << "✅ 订阅MQTT主题: " << topic << std::endl;
+    std::cout << "[SUCCESS] 订阅MQTT主题: " << topic << std::endl;
     return true;
 }
 
 bool MQTTToFastDDSConverter::subscribeAllMQTTTopics() {
     std::cout << "订阅所有MQTT主题..." << std::endl;
+    std::cout << "预定义主题列表大小: " << DEFAULT_MQTT_TOPICS.size() << std::endl;
     
     // 重置订阅确认计数器
     subscriptions_confirmed_ = 0;
     
     bool success = true;
     for (const auto& topic : DEFAULT_MQTT_TOPICS) {
+        std::cout << "[PROC] 处理主题: '" << topic << "'" << std::endl;
         success &= subscribeMQTTTopic(topic);
     }
     
     if (!success) {
-        std::cerr << "❌ 部分MQTT主题订阅失败" << std::endl;
+        std::cerr << "[ERROR] 部分MQTT主题订阅失败" << std::endl;
         return false;
     }
     
@@ -179,9 +183,9 @@ bool MQTTToFastDDSConverter::subscribeAllMQTTTopics() {
     }
     
     if (subscriptions_confirmed_ >= expected_confirmations) {
-        std::cout << "✅ 所有MQTT主题订阅确认完成 (" << subscriptions_confirmed_ << "/" << expected_confirmations << ")" << std::endl;
+        std::cout << "[SUCCESS] 所有MQTT主题订阅确认完成 (" << subscriptions_confirmed_ << "/" << expected_confirmations << ")" << std::endl;
     } else {
-        std::cerr << "❌ MQTT订阅确认超时 (" << subscriptions_confirmed_ << "/" << expected_confirmations << ")" << std::endl;
+        std::cerr << "[ERROR] MQTT订阅确认超时 (" << subscriptions_confirmed_ << "/" << expected_confirmations << ")" << std::endl;
         return false;
     }
     
@@ -198,10 +202,10 @@ void MQTTToFastDDSConverter::onMQTTConnect(struct mosquitto* mosq, void* obj, in
     MQTTToFastDDSConverter* converter = static_cast<MQTTToFastDDSConverter*>(obj);
     
     if (result == 0) {
-        std::cout << "✅ MQTT连接成功" << std::endl;
+        std::cout << "[SUCCESS] MQTT连接成功" << std::endl;
         converter->mqtt_connected_ = true;
     } else {
-        std::cerr << "❌ MQTT连接失败: " << mosquitto_connack_string(result) << std::endl;
+        std::cerr << "[ERROR] MQTT连接失败: " << mosquitto_connack_string(result) << std::endl;
         converter->mqtt_connected_ = false;
     }
 }
@@ -220,21 +224,34 @@ void MQTTToFastDDSConverter::onMQTTMessage(struct mosquitto* mosq, void* obj, co
         std::string topic(message->topic);
         std::string payload(static_cast<char*>(message->payload), message->payloadlen);
         
-        std::cout << "📥 接收到MQTT消息 [" << topic << "]: " << payload << std::endl;
+        // 获取当前时间戳用于详细日志
+        auto now = std::chrono::system_clock::now();
+        auto time_t = std::chrono::system_clock::to_time_t(now);
+        auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) % 1000;
+        
+        std::cout << "[RECV] [" << std::put_time(std::localtime(&time_t), "%H:%M:%S") 
+                  << "." << std::setfill('0') << std::setw(3) << ms.count() 
+                  << "] 接收到MQTT消息 [" << topic << "]: " << payload << std::endl;
         
         // 处理并转换消息
+        std::cout << "[PROC] 开始转换消息到FastDDS..." << std::endl;
         bool convert_success = converter->processAndConvert(topic, payload);
+        
         if (convert_success) {
-            std::cout << "✅ 消息转换成功" << std::endl;
+            std::cout << "[SUCCESS] [" << std::put_time(std::localtime(&time_t), "%H:%M:%S") 
+                      << "." << std::setfill('0') << std::setw(3) << ms.count() 
+                      << "] 消息转换并发布到FastDDS成功 [" << topic << "]" << std::endl;
             // 添加微小延迟避免FastDDS发布冲突
             std::this_thread::sleep_for(std::chrono::microseconds(100));
         } else {
-            std::cout << "❌ 消息转换失败" << std::endl;
+            std::cout << "[ERROR] [" << std::put_time(std::localtime(&time_t), "%H:%M:%S") 
+                      << "." << std::setfill('0') << std::setw(3) << ms.count() 
+                      << "] 消息转换失败 [" << topic << "]" << std::endl;
         }
         
-        // 调用用户回调函数
+        // 调用用户回调函数，传递转换结果
         if (converter->message_callback_) {
-            converter->message_callback_(topic, payload);
+            converter->message_callback_(topic, payload, convert_success);
         }
     }
 }
@@ -242,7 +259,17 @@ void MQTTToFastDDSConverter::onMQTTMessage(struct mosquitto* mosq, void* obj, co
 void MQTTToFastDDSConverter::onMQTTSubscribe(struct mosquitto* mosq, void* obj, int mid, int qos_count, const int* granted_qos) {
     MQTTToFastDDSConverter* converter = static_cast<MQTTToFastDDSConverter*>(obj);
     converter->subscriptions_confirmed_++;
-    std::cout << "✅ MQTT订阅确认 (mid: " << mid << ", 已确认: " << converter->subscriptions_confirmed_ << ")" << std::endl;
+    
+    std::cout << "[SUCCESS] MQTT订阅确认 (mid: " << mid << ", QoS计数: " << qos_count;
+    if (qos_count > 0 && granted_qos) {
+        std::cout << ", 授予QoS: [";
+        for (int i = 0; i < qos_count; i++) {
+            if (i > 0) std::cout << ", ";
+            std::cout << granted_qos[i];
+        }
+        std::cout << "]";
+    }
+    std::cout << ", 已确认: " << converter->subscriptions_confirmed_ << ")" << std::endl;
 }
 
 // =========================== JSON解析辅助函数 ===========================
@@ -262,7 +289,7 @@ bool MQTTToFastDDSConverter::parseJSON(const std::string& json_str, Json::Value&
     delete reader;
     
     if (!success) {
-        std::cerr << "❌ JSON解析失败: " << errors << std::endl;
+        std::cerr << "[ERROR] JSON解析失败: " << errors << std::endl;
     }
     
     return success;
@@ -325,8 +352,9 @@ bool MQTTToFastDDSConverter::processAndConvert(const std::string& topic, const s
         return convertVehicleStatus(json);
     } else if (topic == "/vehicle/control_cmd") {
         return convertRemoteControl(json);
-    } else {
-        std::cerr << "❌ 未知的MQTT主题: " << topic << std::endl;
+
+    }else {
+        std::cerr << "[ERROR] 未知的MQTT主题: " << topic << std::endl;
         return false;
     }
 }
@@ -342,15 +370,17 @@ bool MQTTToFastDDSConverter::convertHandshakeRequest(const Json::Value& json) {
     // 使用原始时间戳，如果没有则使用当前时间
     uint64_t timestamp = original_timestamp > 0 ? original_timestamp : getCurrentTimestamp();
     
+    std::cout << "[PROC] [HandshakeRequest] 开始发布到FastDDS: noa_active=" << noa_active 
+              << ", override_status=" << override_status 
+              << ", override_ready=" << override_ready 
+              << ", timestamp=" << timestamp << std::endl;
+    
     bool result = publishHandshakeRequest("/handshake/request", noa_active, override_status, override_ready, timestamp);
     
     if (result) {
-        std::cout << "✅ HandshakeRequest转换成功: noa_active=" << noa_active 
-                  << ", override_status=" << override_status 
-                  << ", override_ready=" << override_ready 
-                  << ", timestamp=" << timestamp << std::endl;
+        std::cout << "[SUCCESS] [HandshakeRequest] FastDDS发布成功: topic='/handshake/request'" << std::endl;
     } else {
-        std::cerr << "❌ HandshakeRequest转换失败" << std::endl;
+        std::cerr << "[ERROR] [HandshakeRequest] FastDDS发布失败: topic='/handshake/request'" << std::endl;
     }
     
     return result;
@@ -364,15 +394,17 @@ bool MQTTToFastDDSConverter::convertHandshakeResponse(const Json::Value& json) {
     
     uint64_t timestamp = original_timestamp > 0 ? original_timestamp : getCurrentTimestamp();
     
+    std::cout << "[PROC] [HandshakeResponse] 开始发布到FastDDS: noa_active=" << noa_active 
+              << ", override_response=" << override_response 
+              << ", control_source=" << (control_source ? "true" : "false")
+              << ", timestamp=" << timestamp << std::endl;
+    
     bool result = publishHandshakeResponse("/handshake/response", noa_active, override_response, control_source, timestamp);
     
     if (result) {
-        std::cout << "✅ HandshakeResponse转换成功: noa_active=" << noa_active 
-                  << ", override_response=" << override_response 
-                  << ", control_source=" << (control_source ? "true" : "false")
-                  << ", timestamp=" << timestamp << std::endl;
+        std::cout << "[SUCCESS] [HandshakeResponse] FastDDS发布成功: topic='/handshake/response'" << std::endl;
     } else {
-        std::cerr << "❌ HandshakeResponse转换失败" << std::endl;
+        std::cerr << "[ERROR] [HandshakeResponse] FastDDS发布失败: topic='/handshake/response'" << std::endl;
     }
     
     return result;
@@ -385,16 +417,18 @@ bool MQTTToFastDDSConverter::convertVehicleStatus(const Json::Value& json) {
     float longitude = getJSONFloat(json, "position_longitude", 0.0f);
     float latitude = getJSONFloat(json, "position_latitude", 0.0f);
     
+    std::cout << "[PROC] [VehicleStatus] 开始发布到FastDDS: vehicle_id=" << vehicle_id 
+              << ", speed=" << speed 
+              << ", control_mode=" << control_mode 
+              << ", longitude=" << longitude 
+              << ", latitude=" << latitude << std::endl;
+    
     bool result = publishVehicleStatus("/vehicle/vehicle_status", vehicle_id, speed, control_mode, longitude, latitude);
     
     if (result) {
-        std::cout << "✅ VehicleStatus转换成功: vehicle_id=" << vehicle_id 
-                  << ", speed=" << speed 
-                  << ", control_mode=" << control_mode 
-                  << ", longitude=" << longitude 
-                  << ", latitude=" << latitude << std::endl;
+        std::cout << "[SUCCESS] [VehicleStatus] FastDDS发布成功: topic='/vehicle/vehicle_status'" << std::endl;
     } else {
-        std::cerr << "❌ VehicleStatus转换失败" << std::endl;
+        std::cerr << "[ERROR] [VehicleStatus] FastDDS发布失败: topic='/vehicle/vehicle_status'" << std::endl;
     }
     
     return result;
@@ -406,15 +440,17 @@ bool MQTTToFastDDSConverter::convertRemoteControl(const Json::Value& json) {
     bool accel_enable = getJSONBool(json, "target_acceleration_enable", false);
     float acceleration = getJSONFloat(json, "target_acceleration", 0.0f);
     
+    std::cout << "[PROC] [RemoteControl] 开始发布到FastDDS: steering_enable=" << (steering_enable ? "true" : "false")
+              << ", steering_angle=" << steering_angle 
+              << ", accel_enable=" << (accel_enable ? "true" : "false")
+              << ", acceleration=" << acceleration << std::endl;
+    
     bool result = publishRemoteControl("/vehicle/control_cmd", steering_enable, steering_angle, accel_enable, acceleration);
     
     if (result) {
-        std::cout << "✅ RemoteControl转换成功: steering_enable=" << (steering_enable ? "true" : "false")
-                  << ", steering_angle=" << steering_angle 
-                  << ", accel_enable=" << (accel_enable ? "true" : "false")
-                  << ", acceleration=" << acceleration << std::endl;
+        std::cout << "[SUCCESS] [RemoteControl] FastDDS发布成功: topic='/vehicle/control_cmd'" << std::endl;
     } else {
-        std::cerr << "❌ RemoteControl转换失败" << std::endl;
+        std::cerr << "[ERROR] [RemoteControl] FastDDS发布失败: topic='/vehicle/control_cmd'" << std::endl;
     }
     
     return result;
@@ -433,3 +469,5 @@ std::string MQTTToFastDDSConverter::getMQTTStatusString() const {
         return "未连接";
     }
 }
+
+

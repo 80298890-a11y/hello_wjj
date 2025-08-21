@@ -486,7 +486,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "FastDDS发布者初始化失败" << std::endl;
         return 1;
     }
-    std::cout << "✅ FastDDS发布者初始化成功" << std::endl;
+    std::cout << "[SUCCESS] FastDDS发布者初始化成功" << std::endl;
     std::cout << "FastDDS发布者初始化成功" << std::endl;
     
     if (argc == 1) {

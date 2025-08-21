@@ -1,0 +1,38 @@
+module remote_msgs {
+
+  // ChassisDriverStatus.autodrive_on_off_status
+  enum ControlMode {
+    Auto,  
+    Manual, 
+    Remote
+  };
+
+  // VehicleStatus.vehicle_power_status
+  enum PowerModeType {
+    POWERMODE_OFF,
+    POWERMODE_ACC,
+    POWERMODE_ON,
+    POWERMODE_CRANK
+  };
+
+  struct VehicleStatus {
+    unsigned long vehicle_id;
+    ControlMode control_mode;
+    float position_longitude;
+    float position_latitude;
+    float position_altitude;
+    float speed;
+    float yawrate;
+    float gear_position;
+    float acceleration;
+    float heading;
+    float steering_angle;
+    float wheel_angle;
+    long ebrake_status;
+    long indicator_left;
+    long indicator_right;
+    unsigned long long timestamp;
+    PowerModeType power_mode;
+  };
+
+};

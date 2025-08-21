@@ -29,23 +29,26 @@ fastdds_lib/
 #### 1. FastDDSPublisher - FastDDS发布器基类
 - **功能**：提供FastDDS消息发送的通用接口
 - **支持的消息类型**：
-  - HandshakeRequest - 握手请求
-  - HandshakeResponse - 握手响应  
-  - VehicleStatus - 车辆状态
-  - RemoteControl - 远程控制
+  - HandshakeRequest (`/handshake/request`) - 握手请求
+  - HandshakeResponse (`/handshake/response`) - 握手响应  
+  - VehicleStatus (`/vehicle/vehicle_status`) - 车辆状态
+  - RemoteControl (`/vehicle/control_cmd`) - 远程控制
 - **特点**：
   - 虚拟接口设计，支持继承扩展
   - 自动处理FastDDS初始化和清理
   - 禁用数据共享避免内存问题
   - 包含IDL定义的所有字段
+  - **专注生产环境必要功能**，代码简洁高效
 
 #### 2. FastDDSSubscriber - FastDDS订阅器基类
 - **功能**：提供FastDDS消息接收的通用接口
+- **支持的消息类型**：与FastDDSPublisher一致（4个生产环境必要主题）
 - **特点**：
   - 回调函数机制处理接收到的消息
   - 自动订阅所有支持的topic
   - 线程安全的消息处理
   - 支持自定义消息处理逻辑
+  - **专注生产环境必要功能**，无冗余代码
 
 #### 3. FastDDSMQTTPublisher - FastDDS+MQTT集成发布器
 - **功能**：继承FastDDSPublisher，同时支持MQTT发布
@@ -54,7 +57,20 @@ fastdds_lib/
   - 集成MQTT发布能力
   - 支持同时发送FastDDS和MQTT消息
 
-#### 4. MQTTMosquitto - MQTT客户端封装
+#### 4. MQTTToFastDDSConverter - MQTT到FastDDS转换器
+- **功能**：将MQTT消息转换为FastDDS消息
+- **支持的MQTT主题**：
+  - `/handshake/request` → HandshakeRequest
+  - `/handshake/response` → HandshakeResponse
+  - `/vehicle/vehicle_status` → VehicleStatus
+  - `/vehicle/control_cmd` → RemoteControl
+  
+- **特点**：
+  - 自动JSON解析和类型转换
+  - 完整的错误处理机制
+  - 高效的消息处理流程
+
+#### 5. MQTTMosquitto - MQTT客户端封装
 - **功能**：封装libmosquitto库，提供简单的MQTT接口
 - **特点**：
   - 异步发布机制
@@ -137,6 +153,20 @@ int main() {
 - **Handshake.idl** - HandshakeRequest, HandshakeResponse
 - **VehicleStatus.idl** - VehicleStatus  
 - **RemoteControl.idl** - ControlCmd
+
+#### 🧹 代码简化优化 (2025-01-20)
+
+**清理内容**：
+- ✅ 移除了不必要的TSP相关处理代码（约200行代码）
+- ✅ 专注于4个生产环境必要主题的处理
+- ✅ 提升编译效率和运行性能
+- ✅ 代码更简洁易维护
+
+**保留功能**：
+- ✅ 完整的HandshakeRequest/Response处理
+- ✅ 完整的VehicleStatus处理  
+- ✅ 完整的RemoteControl处理
+- ✅ MQTT to FastDDS转换功能
 
 #### 添加新IDL类型
 

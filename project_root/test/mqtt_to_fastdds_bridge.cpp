@@ -162,17 +162,23 @@ std::string get_topic_log_path(const std::string& topic_name) {
 /**
  * @brief MQTT消息回调处理器
  */
-void on_mqtt_message_received(const std::string& topic, const std::string& message) {
+void on_mqtt_message_received(const std::string& topic, const std::string& message, bool conversion_success) {
     // 统计转换结果
     static std::map<std::string, int> success_count;
     static std::map<std::string, int> total_count;
     
     total_count[topic]++;
     
+    // 根据转换结果更新成功计数
+    if (conversion_success) {
+        success_count[topic]++;
+    }
+    
     // 记录接收到MQTT消息的日志
     std::string topic_path = get_topic_log_path(topic);
     std::ostringstream log_content;
-    log_content << "MQTT接收成功 [" << topic << "] → FastDDS转换: " << message;
+    log_content << "MQTT接收成功 [" << topic << "] → FastDDS转换" 
+                << (conversion_success ? "成功" : "失败") << ": " << message;
     
     if (g_logger) {
         g_logger->log(topic_path, log_content.str());
@@ -235,7 +241,7 @@ void cleanup() {
         g_logger.reset();
     }
     
-    std::cout << "✅ 清理完成" << std::endl;
+    std::cout << "清理完成" << std::endl;
 }
 
 /**
@@ -269,7 +275,7 @@ int main() {
 
     // 初始化转换器
     if (!g_converter->init()) {
-        std::cerr << "❌ MQTT到FastDDS转换器初始化失败" << std::endl;
+        std::cerr << "[ERROR] MQTT到FastDDS转换器初始化失败" << std::endl;
         cleanup();
         return 1;
     }
@@ -284,7 +290,7 @@ int main() {
     // 额外等待确保所有订阅都已建立
     std::cout << "\n等待MQTT订阅完全建立..." << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(2));
-    std::cout << "✅ 桥接器准备完毕，可以接收MQTT消息" << std::endl;
+    std::cout << "[READY] 桥接器准备完毕，可以接收MQTT消息" << std::endl;
     std::cout << "\n按 Ctrl+C 停止程序" << std::endl;
 
     // 显示初始状态

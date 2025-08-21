@@ -1,7 +1,9 @@
 # Hashes of file build rules.
 d7de4f2be25e012044d0785c406f75fa /home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx
 66254f3f603ccb29b754caa0384d6b0c /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
+a05f6267b0f467b837bb496446f7e8bc /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
 1ffce1ca87924e53da2d319cecb742a1 /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
 b241b80991b8dcf7b8120fc39e7970ac CMakeFiles/Handshake_generation
 b241b80991b8dcf7b8120fc39e7970ac CMakeFiles/RemoteControl_generation
+b241b80991b8dcf7b8120fc39e7970ac CMakeFiles/TSPCommand_generation
 b241b80991b8dcf7b8120fc39e7970ac CMakeFiles/VehicleStatus_generation

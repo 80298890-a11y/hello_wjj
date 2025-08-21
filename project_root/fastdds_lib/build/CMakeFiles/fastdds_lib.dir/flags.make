@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DFOONATHAN_MEMORY=1 -DFOONATHAN_MEMORY_VERSION_MAJOR=0 -DFOONATHAN_MEMORY_VERSION_MINOR=7 -DFOONATHAN_MEMORY_VERSION_PATCH=3
 
-CXX_INCLUDES = -I/home/wjj/work/project_root/fastdds_lib/include -I/home/wjj/work/project_root/fastdds_lib/../generated_types/Handshake -I/home/wjj/work/project_root/fastdds_lib/../generated_types/VehicleStatus -I/home/wjj/work/project_root/fastdds_lib/../generated_types/RemoteControl -I/usr/include/jsoncpp -I/home/wjj/work/project_root/fastdds_lib/src -isystem /usr/local/include/foonathan_memory
+CXX_INCLUDES = -I/home/wjj/work/project_root/fastdds_lib/include -I/home/wjj/work/project_root/fastdds_lib/../generated_types/Handshake -I/home/wjj/work/project_root/fastdds_lib/../generated_types/VehicleStatus -I/home/wjj/work/project_root/fastdds_lib/../generated_types/RemoteControl -I/home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand -I/usr/include/jsoncpp -I/home/wjj/work/project_root/fastdds_lib/src -isystem /usr/local/include/foonathan_memory
 
 CXX_FLAGS = -std=gnu++17
 

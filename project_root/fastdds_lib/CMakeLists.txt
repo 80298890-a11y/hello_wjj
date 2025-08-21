@@ -38,6 +38,7 @@ set(IDL_FILES
     ${IDL_SOURCE_DIR}/Handshake.idl
     ${IDL_SOURCE_DIR}/VehicleStatus.idl
     ${IDL_SOURCE_DIR}/RemoteControl.idl
+    ${IDL_SOURCE_DIR}/TSPCommand.idl
 )
 
 # 设置生成文件的基础输出目录
@@ -51,6 +52,8 @@ set(GENERATED_SOURCES
     ${GENERATED_BASE_DIR}/VehicleStatus/VehicleStatusTypeObjectSupport.cxx
     ${GENERATED_BASE_DIR}/RemoteControl/RemoteControlPubSubTypes.cxx
     ${GENERATED_BASE_DIR}/RemoteControl/RemoteControlTypeObjectSupport.cxx
+    ${GENERATED_BASE_DIR}/TSPCommand/TSPCommandPubSubTypes.cxx
+    ${GENERATED_BASE_DIR}/TSPCommand/TSPCommandTypeObjectSupport.cxx
 )
 
 # 为每个IDL文件添加生成规则
@@ -94,6 +97,7 @@ add_dependencies(fastdds_lib
     Handshake_generation 
     VehicleStatus_generation 
     RemoteControl_generation
+    TSPCommand_generation
 )
 
 # 设置包含目录（包含所有IDL子目录）
@@ -103,6 +107,7 @@ target_include_directories(fastdds_lib
         $<BUILD_INTERFACE:${GENERATED_BASE_DIR}/Handshake>
         $<BUILD_INTERFACE:${GENERATED_BASE_DIR}/VehicleStatus>
         $<BUILD_INTERFACE:${GENERATED_BASE_DIR}/RemoteControl>
+        $<BUILD_INTERFACE:${GENERATED_BASE_DIR}/TSPCommand>
         $<BUILD_INTERFACE:${JSONCPP_INCLUDE_DIR}>
         $<INSTALL_INTERFACE:include>
     PRIVATE

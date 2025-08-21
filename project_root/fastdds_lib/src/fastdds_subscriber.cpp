@@ -18,9 +18,11 @@
 #include "RemoteControlPubSubTypes.hpp"
 #include "RemoteControlTypeObjectSupport.hpp"
 
+
 using namespace std::chrono;
 using namespace eprosima::fastdds::dds;
 using namespace remote_msgs;
+
 
 // =========================== 监听器类实现 ===========================
 
@@ -142,6 +144,8 @@ public:
     }
 };
 
+
+
 // =========================== FastDDSSubscriber实现 ===========================
 
 FastDDSSubscriber::FastDDSSubscriber(int domain_id)
@@ -232,6 +236,8 @@ void FastDDSSubscriber::setVehicleStatusCallback(VehicleStatusCallback callback)
 void FastDDSSubscriber::setRemoteControlCallback(RemoteControlCallback callback) {
     remote_control_callback_ = callback;
 }
+
+
 
 // =========================== 订阅功能 ===========================
 
@@ -334,7 +340,7 @@ bool FastDDSSubscriber::subscribeAllTopics() {
     success &= subscribeHandshakeResponse("/handshake/response");
     success &= subscribeVehicleStatus("/vehicle/vehicle_status");
     success &= subscribeRemoteControl("/vehicle/control_cmd");
-    
+
     if (success) {
         std::cout << "✅ 所有主题订阅成功" << std::endl;
     } else {
@@ -343,6 +349,8 @@ bool FastDDSSubscriber::subscribeAllTopics() {
     
     return success;
 }
+
+
 
 // =========================== 内部辅助方法 ===========================
 
@@ -400,3 +408,5 @@ DataReader* FastDDSSubscriber::getOrCreateReader(Topic* topic, DataReaderListene
     
     return reader;
 }
+
+

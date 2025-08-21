@@ -102,10 +102,21 @@ include CMakeFiles/fastdds_lib.dir/flags.make
 /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControl.hpp: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControl.hpp
 
+/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx: /home/wjj/work/project_root/idl/TSPCommand.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating FastDDS types for TSPCommand.idl to generated_types/TSPCommand/"
+	/usr/bin/cmake -E make_directory /home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand
+	/usr/local/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand /home/wjj/work/project_root/fastdds_lib/../idl/TSPCommand.idl
+
+/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx
+
+/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommand.hpp: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommand.hpp
+
 CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o: ../src/fastdds_publisher.cpp
 CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o -MF CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o.d -o CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.o -c /home/wjj/work/project_root/fastdds_lib/src/fastdds_publisher.cpp
 
 CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.i: cmake_force
@@ -119,7 +130,7 @@ CMakeFiles/fastdds_lib.dir/src/fastdds_publisher.cpp.s: cmake_force
 CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o: ../src/fastdds_mqtt_publisher.cpp
 CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o -MF CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o.d -o CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.o -c /home/wjj/work/project_root/fastdds_lib/src/fastdds_mqtt_publisher.cpp
 
 CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.i: cmake_force
@@ -133,7 +144,7 @@ CMakeFiles/fastdds_lib.dir/src/fastdds_mqtt_publisher.cpp.s: cmake_force
 CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o: ../src/fastdds_subscriber.cpp
 CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o -MF CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o.d -o CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.o -c /home/wjj/work/project_root/fastdds_lib/src/fastdds_subscriber.cpp
 
 CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.i: cmake_force
@@ -147,7 +158,7 @@ CMakeFiles/fastdds_lib.dir/src/fastdds_subscriber.cpp.s: cmake_force
 CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o: ../src/mqtt_mosquitto.cpp
 CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o -MF CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o.d -o CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.o -c /home/wjj/work/project_root/fastdds_lib/src/mqtt_mosquitto.cpp
 
 CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.i: cmake_force
@@ -161,7 +172,7 @@ CMakeFiles/fastdds_lib.dir/src/mqtt_mosquitto.cpp.s: cmake_force
 CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o: ../src/mqtt_to_fastdds_converter.cpp
 CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o -MF CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o.d -o CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.o -c /home/wjj/work/project_root/fastdds_lib/src/mqtt_to_fastdds_converter.cpp
 
 CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.i: cmake_force
@@ -175,7 +186,7 @@ CMakeFiles/fastdds_lib.dir/src/mqtt_to_fastdds_converter.cpp.s: cmake_force
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o: /home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.o -c /home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx.i: cmake_force
@@ -189,7 +200,7 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o: /home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.o -c /home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx.i: cmake_force
@@ -203,7 +214,7 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/Handshake/
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o -c /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.i: cmake_force
@@ -217,7 +228,7 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleSta
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o -c /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.i: cmake_force
@@ -231,7 +242,7 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleSta
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o -c /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.i: cmake_force
@@ -245,7 +256,7 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteCont
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o -c /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx
 
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.i: cmake_force
@@ -255,6 +266,34 @@ CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteCont
 CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o -c /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx > CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/flags.make
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o: CMakeFiles/fastdds_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o -MF CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o.d -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o -c /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx > CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i
+
+CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx -o CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s
 
 # Object files for target fastdds_lib
 fastdds_lib_OBJECTS = \
@@ -268,7 +307,9 @@ fastdds_lib_OBJECTS = \
 "CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o" \
 "CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o" \
 "CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o" \
-"CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o"
+"CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o" \
+"CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o" \
+"CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o"
 
 # External object files for target fastdds_lib
 fastdds_lib_EXTERNAL_OBJECTS =
@@ -284,9 +325,11 @@ libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generate
 libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx.o
 libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx.o
 libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.o
+libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o
+libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o
 libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/build.make
 libfastdds_lib.a: CMakeFiles/fastdds_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library libfastdds_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX static library libfastdds_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/fastdds_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fastdds_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -304,6 +347,9 @@ CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/H
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControl.hpp
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx
+CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommand.hpp
+CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
+CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatus.hpp
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
 CMakeFiles/fastdds_lib.dir/depend: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/data_processor.dir/data_processor.cpp.o -o data_processor   -L/home/wjj/work/project_root/test/../fastdds_lib/build  -Wl,-rpath,/home/wjj/work/project_root/test/../fastdds_lib/build -lpthread -lmosquitto -lstdc++fs /usr/lib/aarch64-linux-gnu/libjsoncpp.so 

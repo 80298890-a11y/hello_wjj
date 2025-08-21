@@ -32,8 +32,8 @@
  */
 class MQTTToFastDDSConverter : public FastDDSPublisher {
 public:
-    // MQTT消息回调函数类型定义
-    using MQTTMessageCallback = std::function<void(const std::string& topic, const std::string& message)>;
+    // MQTT消息回调函数类型定义 (topic, message, conversion_success)
+    using MQTTMessageCallback = std::function<void(const std::string& topic, const std::string& message, bool conversion_success)>;
 
     /**
      * @brief 构造函数
@@ -179,6 +179,8 @@ public:
      * @return 成功返回true，失败返回false
      */
     bool convertRemoteControl(const Json::Value& json);
+
+
 
     // =========================== 状态查询 ===========================
 

@@ -62,7 +62,7 @@ bool init_mqtt() {
     if (mosquitto_connect(g_mosq, mqtt_host, mqtt_port, 60) != MOSQ_ERR_SUCCESS) return false;
     if (mosquitto_loop_start(g_mosq) != MOSQ_ERR_SUCCESS) return false;
     
-    std::cout << "✅ MQTT客户端连接成功" << std::endl;
+    std::cout << "[SUCCESS] MQTT客户端连接成功" << std::endl;
     return true;
 }
 
@@ -107,6 +107,10 @@ std::string get_topic_log_path(const std::string& topic) {
     if (topic == "/handshake/response") return "handshake/response";
     if (topic == "/vehicle/vehicle_status") return "vehicle/vehicle_status";
     if (topic == "/vehicle/control_cmd") return "vehicle/control_cmd";
+    if (topic.find("tsp/command/") == 0) {
+        std::string command_id = topic.substr(12);
+        return "tsp_command/" + command_id;
+    }
     return "unknown/" + topic;
 }
  
@@ -115,10 +119,35 @@ std::string get_topic_log_path(const std::string& topic) {
     json << "{";
     
     bool first = true;
-    for (const auto& [key, value] : params) {
+    
+    // TSP主题特殊处理 - 使用字符串格式
+    if (topic.find("tsp/command/") == 0) {
+        for (const auto& [key, value] : params) {
+            if (!first) json << ",";
+            json << "\"" << key << "\":";
+            
+            // TSP主题的特定字段使用字符串格式
+            if (key == "action") {
+                json << "\"start\"";  // action字段固定为"start"，模拟车端数据
+            } else if (key == "module") {
+                json << "\"noa\"";    // module字段固定为"noa"
+            } else {
+                json << "\"" << value << "\"";  // 其他字段转为字符串
+            }
+            first = false;
+        }
+        
+        // 添加云端时间戳
         if (!first) json << ",";
-        json << "\"" << key << "\":" << value;
+        json << "\"timestamp\":" << getCurrentTimestamp();
         first = false;
+    } else {
+        // 其他主题使用数字格式
+        for (const auto& [key, value] : params) {
+            if (!first) json << ",";
+            json << "\"" << key << "\":" << value;
+            first = false;
+        }
     }
     
     if (!first) json << ",";
@@ -136,9 +165,9 @@ std::string get_topic_log_path(const std::string& topic) {
         std::string topic_path = get_topic_log_path(topic);
         std::string log_content = "MQTT发送成功 [" + topic + "] " + json_message;
         write_log(topic_path, log_content);
-        std::cout << "✅ " << log_content << std::endl;
+        std::cout << "[SUCCESS] " << log_content << std::endl;
     } else {
-        std::cout << "❌ MQTT发送失败 [" << topic << "]" << std::endl;
+        std::cout << "[ERROR] MQTT发送失败 [" << topic << "]" << std::endl;
     }
     
     return result;
@@ -224,16 +253,17 @@ std::string normalize_topic(const std::string& topic) {
     if (topic == "handshake_response") return "/handshake/response";
     if (topic == "vehicle_status") return "/vehicle/vehicle_status";
     if (topic == "control_cmd") return "/vehicle/control_cmd";
+    if (topic == "tsp_command") return "tsp/command/sender_test";
     return "/" + topic;
 }
 
 void show_usage(const char* prog_name) {
     std::cout << "MQTT消息发送器使用说明:\n\n";
-    std::cout << "1. 默认模式: " << prog_name << " (四个topic轮流发送，总共400Hz)\n";
+    std::cout << "1. 默认模式: " << prog_name << " (五个topic轮流发送，总共500Hz)\n";
     std::cout << "2. 持续100Hz: " << prog_name << " continuous <topic> [params...]\n";
     std::cout << "3. 自定义: " << prog_name << " custom <topic> <hz> <sec> [params...]\n\n";
     std::cout << "示例:\n";
-    std::cout << "  " << prog_name << "  # 默认四topic轮流发送\n";
+    std::cout << "  " << prog_name << "  # 默认五topic轮流发送\n";
     std::cout << "  " << prog_name << " continuous handshake_request noa_active=1\n";
     std::cout << "  " << prog_name << " custom vehicle_status 50 10 speed=60.5\n";
 }
@@ -291,65 +321,60 @@ void cleanup() {
         return 1;
     }
 
-    if (argc == 1) {
-        // 默认模式：四个topic轮流发送，总共400Hz，每个topic 100Hz
-        std::cout << "默认模式: 四个topic轮流发送 (总共400Hz，每个topic 100Hz)" << std::endl;
+    if (argc >= 2 && (std::string(argv[1]) == "vid123" || std::string(argv[1]) == "vid456")) {
+        // VID模式：模拟车端发送TSP命令到指定VID
+        std::string vid = std::string(argv[1]).substr(3); // 去掉"vid"前缀
+        std::string tsp_topic = "tsp/command/" + vid;
         
-        // 定义四个topic和对应的默认参数（严格按照IDL字段）
-        std::vector<std::pair<std::string, std::map<std::string, double>>> topics = {
-            {"/handshake/request", {
-                {"noa_active_request", 1.0}, 
-                {"remote_override_status", 0.0}, 
-                {"remote_override_ready", 1.0}
-            }},
-            {"/handshake/response", {
-                {"noa_active_response", 1.0}, 
-                {"remote_override_response", 0.0}, 
-                {"current_control_source", 1.0}
-            }},
-            {"/vehicle/vehicle_status", {
-                {"vehicle_id", 12345.0}, 
-                {"control_mode", 2.0}, 
-                {"position_longitude", 116.397128}, 
-                {"position_latitude", 39.916527}, 
-                {"position_altitude", 50.0}, 
-                {"speed", 60.5}, 
-                {"yawrate", 0.1}, 
-                {"gear_position", 4.0}, 
-                {"acceleration", 0.2}, 
-                {"heading", 90.0}, 
-                {"steering_angle", 15.5}, 
-                {"wheel_angle", 12.0}, 
-                {"ebrake_status", 0.0}, 
-                {"indicator_left", 0.0}, 
-                {"indicator_right", 0.0}, 
-                {"power_mode", 2.0}
-            }},
-            {"/vehicle/control_cmd", {
-                {"steering_angle_enable", 1.0}, 
-                {"steering_angle", 15.5}, 
-                {"target_acceleration_enable", 1.0}, 
-                {"target_acceleration", 0.3}, 
-                {"indicator_left_enable", 0.0}, 
-                {"indicator_left", 0.0}, 
-                {"indicator_right_enable", 0.0}, 
-                {"indicator_right", 0.0}, 
-                {"gear_position_enable", 1.0}, 
-                {"gear_position", 4.0}, 
-                {"ebrake_status_enable", 1.0}, 
-                {"ebrake_status", 0.0}
-            }}
+        std::cout << "VID模式: 模拟车端发送TSP命令到 " << tsp_topic << " (固定action=start)" << std::endl;
+        
+        std::map<std::string, double> tsp_params = {
+            {"action", 1.0}, {"module", 2.0}
         };
         
-        const int64_t TARGET_INTERVAL_US = 2500;  // 2.5ms = 400Hz总频率
+        int message_count = 0;
+        const int64_t TARGET_INTERVAL_MS = 1000; // 1秒间隔
+        
+        while (g_running) {
+            auto start_time = std::chrono::high_resolution_clock::now();
+            
+            bool success = send_single_message(tsp_topic, tsp_params);
+            message_count++;
+            
+            if (message_count % 10 == 0) {
+                std::cout << "📊 已发送 " << message_count << " 条TSP命令到VID-" << vid << std::endl;
+            }
+            
+            // 等待下一次发送
+            auto end_time = std::chrono::high_resolution_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
+            if (elapsed.count() < TARGET_INTERVAL_MS) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(TARGET_INTERVAL_MS - elapsed.count()));
+            }
+        }
+        
+    } else if (argc == 1) {
+        // 默认模式：五个topic轮流发送，总共500Hz，每个topic 100Hz
+        std::cout << "默认模式: 五个topic轮流发送 (总共500Hz，每个topic 100Hz)" << std::endl;
+        
+        // 定义五个topic和对应的默认参数
+        std::vector<std::pair<std::string, std::map<std::string, double>>> topics = {
+            {"/handshake/request", {{"noa_active", 1.0}, {"override_status", 0.0}, {"override_ready", 1.0}}},
+            {"/handshake/response", {{"noa_active", 1.0}, {"override_status", 0.0}, {"override_ready", 1.0}}},
+            {"/vehicle/vehicle_status", {{"vehicle_id", 12345.0}, {"speed", 60.5}, {"battery", 85.0}}},
+            {"/vehicle/control_cmd", {{"steering_angle", 15.5}, {"throttle", 0.3}, {"brake", 0.0}}},
+            {"tsp/command/sender_test", {{"action", 1.0}, {"module", 2.0}}}
+        };
+        
+        const int64_t TARGET_INTERVAL_US = 2000;  // 2ms = 500Hz总频率
         uint64_t message_count = 0;
         auto start_time = std::chrono::high_resolution_clock::now();
         
         while (g_running) {
             auto loop_start = std::chrono::high_resolution_clock::now();
             
-            // 轮流发送四个topic
-            int topic_index = message_count % 4;
+            // 轮流发送五个topic
+            int topic_index = message_count % 5;
             const auto& [topic, params] = topics[topic_index];
             
             if (send_single_message(topic, params)) {
@@ -364,12 +389,12 @@ void cleanup() {
                 precise_sleep_us(sleep_time_us);
             }
             
-            // 每2000条消息显示统计 (2000/400Hz = 5秒)
-            if (message_count % 2000 == 0) {
+            // 每2500条消息显示统计 (2500/500Hz = 5秒)
+            if (message_count % 2500 == 0) {
                 auto elapsed_sec = std::chrono::duration_cast<std::chrono::seconds>(
                     std::chrono::high_resolution_clock::now() - start_time).count();
                 double total_freq = (elapsed_sec > 0) ? (double)message_count / elapsed_sec : 0.0;
-                double per_topic_freq = total_freq / 4.0;
+                double per_topic_freq = total_freq / 5.0;
                 std::cout << "已发送: " << message_count << " 条, 总频率: " 
                          << std::fixed << std::setprecision(1) << total_freq << "Hz, 每topic: " 
                          << per_topic_freq << "Hz" << std::endl;

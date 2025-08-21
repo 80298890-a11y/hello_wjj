@@ -1,6 +1,7 @@
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/Handshake_generation.dir
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/VehicleStatus_generation.dir
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/RemoteControl_generation.dir
+/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/TSPCommand_generation.dir
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/fastdds_lib.dir
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/edit_cache.dir
 /home/wjj/work/project_root/fastdds_lib/build/CMakeFiles/rebuild_cache.dir

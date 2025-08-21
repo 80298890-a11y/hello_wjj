@@ -4,5 +4,9 @@
 /home/wjj/work/project_root/test/build/CMakeFiles/mqtt_receiver.dir
 /home/wjj/work/project_root/test/build/CMakeFiles/mqtt_sender.dir
 /home/wjj/work/project_root/test/build/CMakeFiles/mqtt_to_fastdds_bridge.dir
+/home/wjj/work/project_root/test/build/CMakeFiles/tsp_forwarder.dir
+/home/wjj/work/project_root/test/build/CMakeFiles/mqtt_simulator.dir
+/home/wjj/work/project_root/test/build/CMakeFiles/data_processor.dir
+/home/wjj/work/project_root/test/build/CMakeFiles/bridge_forwarder.dir
 /home/wjj/work/project_root/test/build/CMakeFiles/edit_cache.dir
 /home/wjj/work/project_root/test/build/CMakeFiles/rebuild_cache.dir

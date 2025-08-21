@@ -156,6 +156,19 @@ RemoteControl_generation/fast:
 .PHONY : RemoteControl_generation/fast
 
 #=============================================================================
+# Target rules for targets named TSPCommand_generation
+
+# Build rule for target.
+TSPCommand_generation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TSPCommand_generation
+.PHONY : TSPCommand_generation
+
+# fast build rule for target.
+TSPCommand_generation/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TSPCommand_generation.dir/build.make CMakeFiles/TSPCommand_generation.dir/build
+.PHONY : TSPCommand_generation/fast
+
+#=============================================================================
 # Target rules for targets named fastdds_lib
 
 # Build rule for target.
@@ -263,6 +276,54 @@ home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObject
 home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s
 .PHONY : home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx.s
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.o: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.o
+
+# target to build an object file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.o
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.i: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.i
+
+# target to preprocess a source file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.i
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.s: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.s
+
+# target to generate assembly for a file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx.s
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.o: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.o
+
+# target to build an object file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.o
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.i: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.i
+
+# target to preprocess a source file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.i
+
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.s: home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.s
+
+# target to generate assembly for a file
+home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fastdds_lib.dir/build.make CMakeFiles/fastdds_lib.dir/home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s
+.PHONY : home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx.s
 
 home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.o: home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx.o
 .PHONY : home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.o
@@ -442,6 +503,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Handshake_generation"
 	@echo "... RemoteControl_generation"
+	@echo "... TSPCommand_generation"
 	@echo "... VehicleStatus_generation"
 	@echo "... fastdds_lib"
 	@echo "... home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.o"
@@ -456,6 +518,12 @@ help:
 	@echo "... home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.o"
 	@echo "... home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.i"
 	@echo "... home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.s"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.o"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.i"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.s"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.o"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.i"
+	@echo "... home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.s"
 	@echo "... home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.o"
 	@echo "... home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.i"
 	@echo "... home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.s"

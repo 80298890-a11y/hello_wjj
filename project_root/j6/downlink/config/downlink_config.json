@@ -1,0 +1,104 @@
+{
+  "mqtt_config": {
+    "host": "hellorobotaxi.cn",
+    "port": 11883,
+    "keepalive": 60
+  },
+  "fastdds_config": {
+    "domain_id": 0,
+    "participant_name": "J6DownlinkSystem"
+  },
+  "logging_config": {
+    "log_base_dir": "/home/wjj/work/project_root/j6/downlink/logs",
+    "log_level": "INFO",
+    "max_queue_size": 10000
+  },
+  "cloud_mqtt_sender": {
+    "client_id": "j6_cloud_mqtt_sender",
+    "default_topic": "/vehicle/control_cmd",
+    "default_frequency_hz": 100,
+    "default_params": {
+      "steering_angle_enable": 0.0,
+      "steering_angle": 0.0,
+      "target_acceleration_enable": 0.0,
+      "target_acceleration": 0.0,
+      "indicator_left_enable": 0.0,
+      "indicator_left": 0.0,
+      "indicator_right_enable": 0.0,
+      "indicator_right": 0.0,
+      "gear_position_enable": 0.0,
+      "gear_position": 0.0,
+      "ebrake_status_enable": 0.0,
+      "ebrake_status": 0.0
+    },
+    "topics": {
+      "/vehicle/control_cmd": {
+        "steering_angle_enable": 0.0,
+        "steering_angle": 0.0,
+        "target_acceleration_enable": 0.0,
+        "target_acceleration": 0.0,
+        "indicator_left_enable": 0.0,
+        "indicator_left": 0.0,
+        "indicator_right_enable": 0.0,
+        "indicator_right": 0.0,
+        "gear_position_enable": 0.0,
+        "gear_position": 0.0,
+        "ebrake_status_enable": 0.0,
+        "ebrake_status": 0.0
+      },
+      "/handshake/request": {
+        "noa_active_request": 0.0,
+        "remote_override_status": 0.0,
+        "remote_override_ready": 0.0
+      },
+      "/handshake/response": {
+        "noa_active_response": 0.0,
+        "remote_override_response": 0.0,
+        "current_control_source": 0.0
+      },
+      "/vehicle/vehicle_status": {
+        "vehicle_id": 0.0,
+        "control_mode": 0.0,
+        "position_longitude": 0.0,
+        "position_latitude": 0.0,
+        "position_altitude": 0.0,
+        "speed": 0.0,
+        "yawrate": 0.0,
+        "gear_position": 0.0,
+        "acceleration": 0.0,
+        "heading": 0.0,
+        "steering_angle": 0.0,
+        "wheel_angle": 0.0,
+        "ebrake_status": 0.0,
+        "indicator_left": 0.0,
+        "indicator_right": 0.0,
+        "power_mode": 0.0
+      }
+    }
+  },
+  "mqtt_to_fastdds_bridge": {
+    "client_id": "j6_mqtt_to_fastdds_bridge",
+    "subscribed_topics": [
+      "/handshake/request",
+      "/handshake/response", 
+      "/vehicle/control_cmd",
+      "/vehicle/vehicle_status"
+    ],
+    "fastdds_topics": {
+      "/handshake/request": "handshake/request",
+      "/handshake/response": "handshake/response",
+      "/vehicle/control_cmd": "vehicle/control_cmd",
+      "/vehicle/vehicle_status": "vehicle/vehicle_status"
+    }
+  },
+  "vehicle_receiver": {
+    "participant_name": "J6VehicleReceiver",
+    "subscribed_topics": [
+      "handshake/request",
+      "handshake/response",
+      "vehicle/control_cmd", 
+      "vehicle/vehicle_status"
+    ],
+    "statistics_interval_sec": 5
+  }
+}

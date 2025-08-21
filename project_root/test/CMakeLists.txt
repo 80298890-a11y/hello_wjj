@@ -22,6 +22,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/Handshake
     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/VehicleStatus
     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/RemoteControl
+    ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/TSPCommand
     ${JSONCPP_INCLUDE_DIR}
 )
 
@@ -77,4 +78,41 @@ target_link_libraries(mqtt_to_fastdds_bridge
     ${JSONCPP_LIBRARY}
 )
 
+# 编译tsp_forwarder (MQTT程序1)
+add_executable(tsp_forwarder tsp_forwarder.cpp)
+target_link_libraries(tsp_forwarder
+    pthread
+    mosquitto
+    stdc++fs
+    ${JSONCPP_LIBRARY}
+)
+
+# 编译mqtt_simulator (MQTT程序X)
+add_executable(mqtt_simulator mqtt_simulator.cpp)
+target_link_libraries(mqtt_simulator
+    pthread
+    mosquitto
+    stdc++fs
+    ${JSONCPP_LIBRARY}
+)
+
+# 编译data_processor (MQTT程序2)
+add_executable(data_processor data_processor.cpp)
+target_link_libraries(data_processor
+    pthread
+    mosquitto
+    stdc++fs
+    ${JSONCPP_LIBRARY}
+)
+
+# test_action_stop已删除
+
+# 编译bridge_forwarder (MQTT程序4)
+add_executable(bridge_forwarder bridge_forwarder.cpp)
+target_link_libraries(bridge_forwarder
+    pthread
+    mosquitto
+    stdc++fs
+    ${JSONCPP_LIBRARY}
+)
 

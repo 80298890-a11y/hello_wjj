@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/wjj/work/project_root/test/../fastdds_lib/include -I/home/wjj/work/project_root/test/../fastdds_lib/build -I/home/wjj/work/project_root/test/../generated_types/Handshake -I/home/wjj/work/project_root/test/../generated_types/VehicleStatus -I/home/wjj/work/project_root/test/../generated_types/RemoteControl -I/usr/include/jsoncpp
+CXX_INCLUDES = -I/home/wjj/work/project_root/test/../fastdds_lib/include -I/home/wjj/work/project_root/test/../fastdds_lib/build -I/home/wjj/work/project_root/test/../generated_types/Handshake -I/home/wjj/work/project_root/test/../generated_types/VehicleStatus -I/home/wjj/work/project_root/test/../generated_types/RemoteControl -I/home/wjj/work/project_root/test/../generated_types/TSPCommand -I/usr/include/jsoncpp
 
 CXX_FLAGS = -std=gnu++17
 

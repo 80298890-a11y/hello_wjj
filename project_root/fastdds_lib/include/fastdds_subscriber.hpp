@@ -5,6 +5,8 @@
 #include <memory>
 #include <functional>
 #include <unordered_map>
+#include <unordered_set>
+#include <mutex>
 
 #include <fastdds/dds/domain/DomainParticipant.hpp>
 #include <fastdds/dds/subscriber/Subscriber.hpp>
@@ -23,6 +25,8 @@ namespace remote_msgs {
     class ControlCmd;
 }
 
+
+
 /**
  * @brief 通用的FastDDS订阅者库
  * 
@@ -35,6 +39,7 @@ public:
     using HandshakeResponseCallback = std::function<void(long noa_active, long override_response, bool control_source, uint64_t timestamp)>;
     using VehicleStatusCallback = std::function<void(uint32_t vehicle_id, int control_mode, float position_longitude, float position_latitude, float position_altitude, float speed, float yawrate, float gear_position, float acceleration, float heading, float steering_angle, float wheel_angle, long ebrake_status, long indicator_left, long indicator_right, uint64_t timestamp, int power_mode)>;
     using RemoteControlCallback = std::function<void(bool steering_angle_enable, float steering_angle, bool target_acceleration_enable, float target_acceleration, bool indicator_left_enable, bool indicator_left, bool indicator_right_enable, bool indicator_right, bool gear_position_enable, long gear_position, bool ebrake_status_enable, long ebrake_status, uint64_t timestamp)>;
+
 
     /**
      * @brief 构造函数
@@ -80,6 +85,8 @@ public:
      */
     void setRemoteControlCallback(RemoteControlCallback callback);
 
+
+
     // =========================== 订阅功能 ===========================
 
     /**
@@ -114,6 +121,9 @@ public:
      * @brief 订阅所有主题
      * @return 成功返回true，失败返回false
      */
+
+
+
     bool subscribeAllTopics();
 
 protected:
@@ -136,6 +146,7 @@ protected:
     class VehicleStatusListener;
     class RemoteControlListener;
 
+
 private:
     // DDS 实体
     DomainParticipant* participant_;
@@ -155,6 +166,7 @@ private:
     HandshakeResponseCallback handshake_response_callback_;
     VehicleStatusCallback vehicle_status_callback_;
     RemoteControlCallback remote_control_callback_;
+
 };
 
 #endif // FASTDDS_SUBSCRIBER_HPP

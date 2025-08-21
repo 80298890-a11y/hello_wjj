@@ -39,9 +39,53 @@ void cleanup();
 
 // MQTT相关全局变量
 struct mosquitto* g_mosq = nullptr;
-const char* mqtt_host = "hellorobotaxi.cn";
-int mqtt_port = 11883;
+const char* mqtt_host = "localhost";  // 连接本地MQTT broker
+int mqtt_port = 1883;                 // 本地MQTT端口
 const char* client_id = "fastdds_to_mqtt_bridge";
+
+// VID配置
+std::string g_vehicle_id = "12345678"; // 默认VID，从配置文件读取
+
+/**
+ * @brief 从配置文件读取VID
+ */
+std::string readVIDFromConfig() {
+    const std::string config_file = "/home/wjj/work/car_config/vehicle_config.yaml";
+    std::ifstream file(config_file);
+    
+    if (!file.is_open()) {
+        std::cerr << "[ERROR] 无法打开VID配置文件: " << config_file << std::endl;
+        return "12345678"; // 返回默认VID
+    }
+    
+    std::string line;
+    while (std::getline(file, line)) {
+        // 查找 vid: "xxxxxxxx" 格式
+        size_t vid_pos = line.find("vid:");
+        if (vid_pos != std::string::npos) {
+            // 提取引号内的内容
+            size_t quote_start = line.find("\"", vid_pos);
+            if (quote_start != std::string::npos) {
+                size_t quote_end = line.find("\"", quote_start + 1);
+                if (quote_end != std::string::npos) {
+                    std::string vid = line.substr(quote_start + 1, quote_end - quote_start - 1);
+                    std::cout << "[SUCCESS] 从配置文件读取VID: " << vid << std::endl;
+                    return vid;
+                }
+            }
+        }
+    }
+    
+    std::cerr << "[ERROR] 配置文件中未找到VID，使用默认值" << std::endl;
+    return "12345678"; // 返回默认VID
+}
+
+/**
+ * @brief 生成带VID后缀的MQTT话题
+ */
+std::string generateTopicWithVID(const std::string& base_topic, const std::string& vid) {
+    return base_topic + "/" + vid;
+}
 
 /**
  * @brief MQTT发布函数 - 使用libmosquitto库
@@ -116,7 +160,7 @@ bool init_mqtt() {
         return false;
     }
     
-    std::cout << "✅ MQTT客户端初始化成功，连接到 " << mqtt_host << ":" << mqtt_port << std::endl;
+    std::cout << "[SUCCESS] MQTT客户端初始化成功，连接到本地MQTT " << mqtt_host << ":" << mqtt_port << std::endl;
     return true;
 }
 
@@ -307,20 +351,21 @@ public:
                                    ",\"fastdds_timestamp\":" + std::to_string(timestamp) +
                                    ",\"received_timestamp\":" + std::to_string(received_timestamp) + "}";
         
-        bool success = publish_mqtt_message("/handshake/request", mqtt_message);
+        std::string topic = generateTopicWithVID("/handshake/request", g_vehicle_id);
+        bool success = publish_mqtt_message(topic, mqtt_message);
         
         std::ostringstream oss;
         oss << "FastDDS->MQTT " << (success ? "成功" : "失败") 
-            << " [/handshake/request] " << mqtt_message;
+            << " [" << topic << "] " << mqtt_message;
         
         if (g_logger) {
             g_logger->log("handshake_request", oss.str());
         }
         
         if (success) {
-            std::cout << "✅ HandshakeRequest转发成功" << std::endl;
+            std::cout << "[SUCCESS] HandshakeRequest转发成功" << std::endl;
         } else {
-            std::cout << "❌ HandshakeRequest转发失败" << std::endl;
+            std::cout << "[ERROR] HandshakeRequest转发失败" << std::endl;
         }
     }
     
@@ -335,11 +380,12 @@ public:
                                    ",\"fastdds_timestamp\":" + std::to_string(timestamp) +
                                    ",\"received_timestamp\":" + std::to_string(received_timestamp) + "}";
         
-        bool success = publish_mqtt_message("/handshake/response", mqtt_message);
+        std::string topic = generateTopicWithVID("/handshake/response", g_vehicle_id);
+        bool success = publish_mqtt_message(topic, mqtt_message);
         
         std::ostringstream oss;
         oss << "FastDDS->MQTT " << (success ? "成功" : "失败") 
-            << " [/handshake/response] " << mqtt_message;
+            << " [" << topic << "] " << mqtt_message;
         
         if (g_logger) {
             g_logger->log("handshake_response", oss.str());
@@ -368,20 +414,21 @@ public:
                                    ",\"timestamp\":" + std::to_string(timestamp) +
                                    ",\"power_mode\":" + std::to_string(power_mode) + "}";
         
-        bool success = publish_mqtt_message("/vehicle/vehicle_status", mqtt_message);
+        std::string topic = generateTopicWithVID("/vehicle/vehicle_status", g_vehicle_id);
+        bool success = publish_mqtt_message(topic, mqtt_message);
         
         std::ostringstream oss;
         oss << "FastDDS->MQTT " << (success ? "成功" : "失败") 
-            << " [/vehicle/vehicle_status] " << mqtt_message;
+            << " [" << topic << "] " << mqtt_message;
         
         if (g_logger) {
             g_logger->log("vehicle_status", oss.str());
         }
         
         if (success) {
-            std::cout << "✅ VehicleStatus转发成功" << std::endl;
+            std::cout << "[SUCCESS] VehicleStatus转发成功" << std::endl;
         } else {
-            std::cout << "❌ VehicleStatus转发失败" << std::endl;
+            std::cout << "[ERROR] VehicleStatus转发失败" << std::endl;
         }
     }
     
@@ -403,20 +450,21 @@ public:
                                    ",\"ebrake_status\":" + std::to_string(ebrake_status) + 
                                    ",\"timestamp\":" + std::to_string(timestamp) + "}";
         
-        bool success = publish_mqtt_message("/vehicle/control_cmd", mqtt_message);
+        std::string topic = generateTopicWithVID("/vehicle/control_cmd", g_vehicle_id);
+        bool success = publish_mqtt_message(topic, mqtt_message);
         
         std::ostringstream oss;
         oss << "FastDDS->MQTT " << (success ? "成功" : "失败") 
-            << " [/vehicle/control_cmd] " << mqtt_message;
+            << " [" << topic << "] " << mqtt_message;
         
         if (g_logger) {
             g_logger->log("remote_control", oss.str());
         }
         
         if (success) {
-            std::cout << "✅ RemoteControl转发成功" << std::endl;
+            std::cout << "[SUCCESS] RemoteControl转发成功" << std::endl;
         } else {
-            std::cout << "❌ RemoteControl转发失败" << std::endl;
+            std::cout << "[ERROR] RemoteControl转发失败" << std::endl;
         }
     }
 };
@@ -499,16 +547,20 @@ void cleanup() {
         g_logger.reset();
     }
     
-    std::cout << "✅ 清理完成" << std::endl;
+    std::cout << "[SUCCESS] 清理完成" << std::endl;
 }
 
 int main() {
-    std::cout << "FastDDS到MQTT桥接器" << std::endl;
-    std::cout << "===================" << std::endl;
-    std::cout << "接收FastDDS消息并转发到MQTT服务器 (hellorobotaxi.cn:11883)" << std::endl;
+    std::cout << "FastDDS到MQTT桥接器 (反向链路-本地)" << std::endl;
+    std::cout << "======================================" << std::endl;
+    std::cout << "接收FastDDS消息并转发到本地MQTT (localhost:1883)" << std::endl;
 
     signal(SIGINT, signal_handler);
     signal(SIGTERM, signal_handler);
+
+    // 读取VID配置
+    g_vehicle_id = readVIDFromConfig();
+    std::cout << "[SUCCESS] 当前车辆VID: " << g_vehicle_id << std::endl;
 
     // 创建日志目录并初始化异步日志
     std::string log_dir = create_log_directory();
