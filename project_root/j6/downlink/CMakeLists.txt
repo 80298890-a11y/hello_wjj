@@ -28,7 +28,7 @@ set(CMAKE_INSTALL_RPATH "/usr/local/fastdds-2.6.10/lib:/usr/local/lib")
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-# 创建云端MQTT发送器
+# 创建云端MQTT发送器(简化版)
 add_executable(cloud_mqtt_sender 
     src/cloud_mqtt_sender.cpp
     ../shared/src/AsyncLogger.cpp

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/mqtt_receiver.dir/mqtt_receiver.cpp.o -o mqtt_receiver   -L/home/wjj/work/project_root/test/../fastdds_lib/build  -Wl,-rpath,/home/wjj/work/project_root/test/../fastdds_lib/build -lpthread -lmosquitto 

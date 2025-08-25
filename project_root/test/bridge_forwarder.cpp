@@ -40,22 +40,60 @@ std::string g_vehicle_id = "12345678";
 // 正向链路状态管理
 static std::mutex g_forward_mutex;
 static std::map<std::string, double> g_handshake_state = {
-    {"noa_active", 1.0}, {"override_status", 0.0}, {"override_ready", 1.0}
+    {"noa_active_request", 1.0}, {"remote_override_status", 0.0}, {"remote_override_ready", 1.0}
 };
 
-// IDL默认值
+// IDL默认值 - 包含所有字段的完整默认值
 static const std::map<std::string, std::map<std::string, double>> g_idl_defaults = {
-    {"/handshake/request", {{"noa_active", 1.0}, {"override_status", 0.0}, {"override_ready", 1.0}}},
-    {"/handshake/response", {{"noa_active", 1.0}, {"override_response", 0.0}, {"control_source", 1.0}}},
-    {"/vehicle/vehicle_status", {{"vehicle_id", 12345.0}, {"speed", 60.5}, {"control_mode", 2.0}}},
-    {"/vehicle/control_cmd", {{"steering_angle", 15.5}, {"throttle", 0.3}, {"brake", 0.0}}}
+    {"/handshake/request", {
+        {"noa_active_request", 1.0}, 
+        {"remote_override_status", 0.0}, 
+        {"remote_override_ready", 1.0}
+    }},
+    {"/handshake/response", {
+        {"noa_active_response", 1.0}, 
+        {"remote_override_response", 0.0}, 
+        {"current_control_source", 1.0}
+    }},
+    {"/vehicle/vehicle_status", {
+        {"vehicle_id", 12345.0}, 
+        {"control_mode", 2.0}, 
+        {"position_longitude", 116.4074}, 
+        {"position_latitude", 39.9042}, 
+        {"position_altitude", 50.0}, 
+        {"speed", 60.5}, 
+        {"yawrate", 0.0}, 
+        {"gear_position", 3.0}, 
+        {"acceleration", 0.0}, 
+        {"heading", 0.0}, 
+        {"steering_angle", 0.0}, 
+        {"wheel_angle", 0.0}, 
+        {"ebrake_status", 0.0}, 
+        {"indicator_left", 0.0}, 
+        {"indicator_right", 0.0}, 
+        {"power_mode", 2.0}
+    }},
+    {"/vehicle/control_cmd", {
+        {"steering_angle_enable", 0.0}, 
+        {"steering_angle", 15.5}, 
+        {"target_acceleration_enable", 0.0}, 
+        {"target_acceleration", 0.0}, 
+        {"indicator_left_enable", 0.0}, 
+        {"indicator_left", 0.0}, 
+        {"indicator_right_enable", 0.0}, 
+        {"indicator_right", 0.0}, 
+        {"gear_position_enable", 1.0}, 
+        {"gear_position", 1.0}, 
+        {"ebrake_status_enable", 1.0}, 
+        {"ebrake_status", 0.0}
+    }}
 };
 
 /**
  * @brief 从配置文件读取VID
  */
 std::string readVIDFromConfig() {
-    const std::string config_file = "/home/wjj/work/car_config/vehicle_config.yaml";
+    const std::string config_file = "../../car_config/vehicle_config.yaml";
     std::ifstream file(config_file);
     
     if (!file.is_open()) {
@@ -138,14 +176,17 @@ void forwardLinkThread() {
         // 轮流发送4个IDL
         std::string topic = topics[message_count % 4];
         
-        // 获取当前状态
+        // 获取当前状态 - 所有IDL都使用完整的默认值，然后根据实际状态更新
         std::map<std::string, double> current_state;
         {
             std::lock_guard<std::mutex> lock(g_forward_mutex);
+            current_state = g_idl_defaults.at(topic); // 先使用完整默认值
+            
+            // 如果是handshake/request，则更新实际接收到的状态
             if (topic == "/handshake/request") {
-                current_state = g_handshake_state; // 使用实际状态
-            } else {
-                current_state = g_idl_defaults.at(topic); // 使用默认值
+                for (const auto& [key, value] : g_handshake_state) {
+                    current_state[key] = value; // 覆盖对应字段
+                }
             }
         }
         
@@ -180,9 +221,9 @@ void handleForwardMessage(const std::string& topic, const std::string& payload) 
             std::lock_guard<std::mutex> lock(g_forward_mutex);
             
             if (json_data.isMember("noa_active")) {
-                g_handshake_state["noa_active"] = json_data["noa_active"].asDouble();
-                g_logger->log("INFO", "正向链路状态更新: noa_active=" + 
-                             std::to_string(g_handshake_state["noa_active"]));
+                g_handshake_state["noa_active_request"] = json_data["noa_active"].asDouble();
+                g_logger->log("INFO", "正向链路状态更新: noa_active_request=" + 
+                             std::to_string(g_handshake_state["noa_active_request"]));
             }
         }
     } catch (const std::exception& e) {

@@ -1,60 +1,70 @@
 /**
  * @file cloud_mqtt_sender.cpp
- * @brief J6下行系统 - 云端MQTT发送器
+ * @brief J6下行系统 - 云端MQTT发送器(简化版)
  * 
- * 功能：模拟云端发送控制指令到MQTT服务器
- * 发送JSON消息到MQTT，包含车机控制命令
+ * 功能：
+ * - 支持所有IDL消息类型，智能默认值填充
+ * - 支持单次发送、持续发送、流式发送
+ * - 简化的命令行接口，500行以内
  * 
  * 使用：
- * ./cloud_mqtt_sender                           # 默认100Hz发送control_cmd
- * ./cloud_mqtt_sender continuous <topic>        # 指定topic持续100Hz发送  
- * ./cloud_mqtt_sender custom <topic> <hz> <sec> # 自定义发送模式
+ * ./cloud_mqtt_sender send <topic> [key=value...]     # 发送单条消息
+ * ./cloud_mqtt_sender continuous <topic> [key=value...] # 持续100Hz发送
+ * ./cloud_mqtt_sender stream <topic> [key=value...]   # 流式发送，可动态更新
  */
 
 #include <iostream>
 #include <string>
 #include <thread>
 #include <chrono>
-#include <filesystem>
-#include <iomanip>
 #include <sstream>
 #include <signal.h>
 #include <atomic>
-#include <fstream>
 #include <map>
-#include <vector>
+#include <mutex>
+#include <algorithm>
 #include <mosquitto.h>
 #include "AsyncLogger.h"
 #include "ConfigManager.h"
 
 // 全局控制变量
 std::atomic<bool> g_running{true};
+std::atomic<bool> g_stream_running{false};
 
 // MQTT相关全局变量
 struct mosquitto* g_mosq = nullptr;
-const char* mqtt_host = "hellorobotaxi.cn";
-int mqtt_port = 11883;
-const char* client_id = "j6_cloud_mqtt_sender";
-
-// 全局日志器和配置管理器
 std::unique_ptr<AsyncLogger> g_logger = nullptr;
 std::unique_ptr<ConfigManager> g_config = nullptr;
 uint64_t g_message_sequence = 0;
 
-bool publish_mqtt_message(const std::string& topic, const std::string& message) {
-    if (!g_mosq) return false;
-    
-    int socket = mosquitto_socket(g_mosq);
-    if (socket == -1) {
-        if (mosquitto_reconnect(g_mosq) != MOSQ_ERR_SUCCESS) return false;
-    }
-    
-    int result = mosquitto_publish(g_mosq, nullptr, topic.c_str(), 
-                                 message.length(), message.c_str(), 0, false);
-    if (result != MOSQ_ERR_SUCCESS) return false;
-    
-    mosquitto_loop_write(g_mosq, 0);
-    return true;
+// 流式发送参数
+std::mutex g_stream_mutex;
+std::map<std::string, double> g_stream_params;
+std::string g_stream_topic;
+
+// IDL消息模板
+std::map<std::string, std::map<std::string, double>> get_templates() {
+    static std::map<std::string, std::map<std::string, double>> templates = {
+        {"/vehicle/control_cmd", {
+            {"steering_angle_enable", 0}, {"steering_angle", 0.0},
+            {"target_acceleration_enable", 0}, {"target_acceleration", 0.0},
+            {"indicator_left_enable", 0}, {"indicator_left", 0},
+            {"indicator_right_enable", 0}, {"indicator_right", 0},
+            {"gear_position_enable", 0}, {"gear_position", 0},
+            {"ebrake_status_enable", 0}, {"ebrake_status", 0}
+        }},
+        {"/handshake/request", {
+            {"noa_active_request", 0}, {"remote_override_status", 0}, {"remote_override_ready", 0}
+        }},
+        {"/handshake/response", {
+            {"noa_active_response", 0}, {"remote_override_response", 0}, {"current_control_source", 0}
+        }},
+        {"/vehicle/vehicle_status", {
+            {"vehicle_id", 0}, {"control_mode", 0}, {"position_longitude", 0.0}, {"position_latitude", 0.0},
+            {"speed", 0.0}, {"heading", 0.0}, {"steering_angle", 0.0}, {"power_mode", 0}
+        }}
+    };
+    return templates;
 }
 
 uint64_t getCurrentTimestamp() {
@@ -64,161 +74,28 @@ uint64_t getCurrentTimestamp() {
 
 bool init_mqtt() {
     auto mqtt_config = g_config->getMQTTConfig("cloud_mqtt_sender");
-    
     mosquitto_lib_init();
     g_mosq = mosquitto_new(mqtt_config.client_id.c_str(), true, nullptr);
     if (!g_mosq) return false;
     
-    if (mosquitto_connect(g_mosq, mqtt_config.host.c_str(), mqtt_config.port, mqtt_config.keepalive) != MOSQ_ERR_SUCCESS) return false;
+    if (mosquitto_connect(g_mosq, mqtt_config.host.c_str(), mqtt_config.port, mqtt_config.keepalive) != MOSQ_ERR_SUCCESS) 
+        return false;
     if (mosquitto_loop_start(g_mosq) != MOSQ_ERR_SUCCESS) return false;
     
-    std::cout << "[SUCCESS] MQTT客户端连接成功: " << mqtt_config.host << ":" << mqtt_config.port << std::endl;
+    std::cout << "[SUCCESS] MQTT连接成功: " << mqtt_config.host << ":" << mqtt_config.port << std::endl;
     return true;
 }
 
-void cleanup_mqtt() {
+void cleanup() {
+    g_running = false;
+    g_stream_running = false;
     if (g_mosq) {
         mosquitto_loop_stop(g_mosq, true);
         mosquitto_disconnect(g_mosq);
         mosquitto_destroy(g_mosq);
-        g_mosq = nullptr;
     }
     mosquitto_lib_cleanup();
-}
-
-std::string get_topic_log_name(const std::string& topic) {
-    if (topic == "/vehicle/control_cmd") return "vehicle_control_cmd";
-    if (topic == "/handshake/request") return "handshake_request";
-    if (topic == "/handshake/response") return "handshake_response";
-    if (topic == "/vehicle/vehicle_status") return "vehicle_vehicle_status";
-    if (topic.find("tsp/command/") == 0) {
-        std::string command_id = topic.substr(12);
-        return "tsp_command_" + command_id;
-    }
-    return "unknown_" + topic;
-}
-
-std::string build_json_message(const std::string& topic, const std::map<std::string, double>& params) {
-    std::ostringstream json;
-    json << "{";
-    
-    bool first = true;
-    
-    // 添加自定义参数
-    for (const auto& [key, value] : params) {
-        if (!first) json << ",";
-        json << "\"" << key << "\":" << value;
-        first = false;
-    }
-    
-    // 添加云端时间戳
-    if (!first) json << ",";
-    json << "\"cloud_timestamp\":" << getCurrentTimestamp();
-    json << "}";
-    
-    return json.str();
-}
-
-bool send_single_message(const std::string& topic, const std::map<std::string, double>& params) {
-    std::string json_message = build_json_message(topic, params);
-    bool result = publish_mqtt_message(topic, json_message);
-    
-    g_message_sequence++;
-    
-    if (result) {
-        std::string topic_log_name = get_topic_log_name(topic);
-        std::string log_content = "MQTT发送成功 [" + topic + "] " + json_message;
-        
-        if (g_logger) {
-            g_logger->logMessage(topic_log_name, log_content, getCurrentTimestamp(), g_message_sequence);
-        }
-        
-        std::cout << "[SUCCESS] " << log_content << std::endl;
-    } else {
-        std::string log_content = "MQTT发送失败 [" + topic + "]";
-        std::cout << "[ERROR] " << log_content << std::endl;
-        
-        if (g_logger) {
-            std::string topic_log_name = get_topic_log_name(topic);
-            g_logger->logMessage(topic_log_name, log_content, getCurrentTimestamp(), g_message_sequence);
-        }
-    }
-    
-    return result;
-}
-
-void precise_sleep_us(int64_t microseconds) {
-    auto start = std::chrono::high_resolution_clock::now();
-    auto target = start + std::chrono::microseconds(microseconds);
-    while (std::chrono::high_resolution_clock::now() < target) {
-        std::this_thread::yield();
-    }
-}
-
-void continuous_single_topic_mode(const std::string& topic, const std::map<std::string, double>& params) {
-    std::cout << "持续100Hz发送: " << topic << " (Ctrl+C停止)" << std::endl;
-    
-    const int64_t TARGET_INTERVAL_US = 10000;  // 10ms = 100Hz
-    uint64_t message_count = 0;
-    auto start_time = std::chrono::high_resolution_clock::now();
-    
-    while (g_running) {
-        auto loop_start = std::chrono::high_resolution_clock::now();
-        
-        if (send_single_message(topic, params)) {
-            message_count++;
-        }
-        
-        auto elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::high_resolution_clock::now() - loop_start).count();
-        
-        int64_t sleep_time_us = TARGET_INTERVAL_US - elapsed_us;
-        if (sleep_time_us > 0) {
-            precise_sleep_us(sleep_time_us);
-        }
-        
-        // 每5秒显示统计
-        if (message_count % 500 == 0) {
-            auto elapsed_sec = std::chrono::duration_cast<std::chrono::seconds>(
-                std::chrono::high_resolution_clock::now() - start_time).count();
-            double freq = (elapsed_sec > 0) ? (double)message_count / elapsed_sec : 0.0;
-            std::cout << "已发送: " << message_count << " 条, 频率: " 
-                     << std::fixed << std::setprecision(1) << freq << "Hz" << std::endl;
-        }
-    }
-    
-    std::cout << "发送停止, 总计: " << message_count << " 条" << std::endl;
-}
-
-void custom_send_mode(const std::string& topic, int frequency_hz, int duration_sec, const std::map<std::string, double>& params) {
-    std::cout << "自定义发送: " << topic << " " << frequency_hz << "Hz " << duration_sec << "秒" << std::endl;
-    
-    int64_t interval_us = 1000000 / frequency_hz;
-    int total_messages = frequency_hz * duration_sec;
-    int sent_count = 0;
-    
-    for (int i = 0; i < total_messages && g_running; i++) {
-        auto loop_start = std::chrono::high_resolution_clock::now();
-        
-        if (send_single_message(topic, params)) {
-            sent_count++;
-        }
-        
-        auto elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::high_resolution_clock::now() - loop_start).count();
-        
-        int64_t sleep_time_us = interval_us - elapsed_us;
-        if (sleep_time_us > 0) {
-            precise_sleep_us(sleep_time_us);
-        }
-        
-        // 每秒显示统计
-        if ((i + 1) % frequency_hz == 0) {
-            std::cout << "已发送: " << sent_count << " 条" << std::endl;
-        }
-    }
-    
-    std::cout << "发送完成, 总计: " << sent_count << " 条" << std::endl;
+    if (g_logger) g_logger->shutdown();
 }
 
 std::string normalize_topic(const std::string& topic) {
@@ -230,20 +107,8 @@ std::string normalize_topic(const std::string& topic) {
     return "/" + topic;
 }
 
-void show_usage(const char* prog_name) {
-    std::cout << "J6云端MQTT发送器使用说明:\n\n";
-    std::cout << "1. 默认模式: " << prog_name << " (默认100Hz发送control_cmd)\n";
-    std::cout << "2. 持续100Hz: " << prog_name << " continuous <topic> [params...]\n";
-    std::cout << "3. 自定义: " << prog_name << " custom <topic> <hz> <sec> [params...]\n\n";
-    std::cout << "示例:\n";
-    std::cout << "  " << prog_name << "  # 默认100Hz发送control_cmd\n";
-    std::cout << "  " << prog_name << " continuous control_cmd steering_angle=15.5\n";
-    std::cout << "  " << prog_name << " custom control_cmd 50 10 throttle=0.8\n";
-}
-
 std::map<std::string, double> parse_params(int argc, char* argv[], int start_idx) {
     std::map<std::string, double> params;
-    
     for (int i = start_idx; i < argc; i++) {
         std::string arg = argv[i];
         size_t eq_pos = arg.find('=');
@@ -255,128 +120,287 @@ std::map<std::string, double> parse_params(int argc, char* argv[], int start_idx
             } catch (const std::exception&) {
                 std::cerr << "警告: 无法解析参数 " << arg << std::endl;
             }
+        } else if (i + 1 < argc) {
+            // 支持 key value 格式
+            try {
+                params[arg] = std::stod(argv[i + 1]);
+                i++; // 跳过下一个参数
+            } catch (const std::exception&) {
+                std::cerr << "警告: 无法解析参数 " << arg << " " << argv[i + 1] << std::endl;
+            }
         }
     }
-    
     return params;
 }
 
-void signal_handler(int signal) {
-    static int signal_count = 0;
-    signal_count++;
+std::string build_json(const std::string& topic, const std::map<std::string, double>& custom_params) {
+    auto templates = get_templates();
+    std::map<std::string, double> final_params;
     
-    if (signal_count == 1) {
-        std::cout << "\n接收到停止信号，准备退出..." << std::endl;
-        g_running = false;
-    } else {
-        std::cout << "\n强制退出..." << std::endl;
-        cleanup_mqtt();
-        if (g_logger) {
-            g_logger->shutdown();
-            g_logger.reset();
-        }
-        exit(1);
+    // 获取默认模板
+    if (templates.find(topic) != templates.end()) {
+        final_params = templates[topic];
     }
+    
+    // 用自定义参数覆盖
+    for (const auto& [key, value] : custom_params) {
+        final_params[key] = value;
+    }
+    
+    // 构建JSON
+    std::ostringstream json;
+    json << "{";
+    bool first = true;
+    for (const auto& [key, value] : final_params) {
+        if (!first) json << ",";
+        json << "\"" << key << "\":" << value;
+        first = false;
+    }
+    json << ",\"timestamp\":" << getCurrentTimestamp();
+    json << ",\"cloud_timestamp\":" << getCurrentTimestamp();
+    json << "}";
+    
+    return json.str();
 }
 
-void cleanup() {
-    cleanup_mqtt();
-    if (g_logger) {
-        g_logger->shutdown();
-        g_logger.reset();
+bool send_message(const std::string& topic, const std::map<std::string, double>& params) {
+    if (!g_mosq) return false;
+    
+    std::string json_message = build_json(topic, params);
+    int result = mosquitto_publish(g_mosq, nullptr, topic.c_str(), 
+                                 json_message.length(), json_message.c_str(), 0, false);
+    
+    if (result == MOSQ_ERR_SUCCESS) {
+        g_message_sequence++;
+        std::cout << "[SUCCESS] 发送消息 [" << topic << "] " << json_message << std::endl;
+        
+        if (g_logger) {
+            std::string log_name = topic.substr(1); // 去掉开头的/
+            std::replace(log_name.begin(), log_name.end(), '/', '_');
+            g_logger->logMessage(log_name, "MQTT发送成功: " + json_message, 
+                               getCurrentTimestamp(), g_message_sequence);
+        }
+        return true;
     }
-    std::cout << "清理完成" << std::endl;
+    
+    std::cout << "[ERROR] 发送失败: " << result << std::endl;
+    return false;
+}
+
+void send_mode(const std::string& topic, const std::map<std::string, double>& params) {
+    std::cout << "发送单条消息到: " << topic << std::endl;
+    send_message(topic, params);
+}
+
+void continuous_mode(const std::string& topic, const std::map<std::string, double>& params) {
+    std::cout << "持续100Hz发送: " << topic << " (Ctrl+C停止)" << std::endl;
+    
+    const int64_t interval_us = 10000; // 10ms = 100Hz
+    uint64_t count = 0;
+    auto start_time = std::chrono::high_resolution_clock::now();
+    
+    while (g_running) {
+        auto loop_start = std::chrono::high_resolution_clock::now();
+        
+        if (send_message(topic, params)) count++;
+        
+        auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::high_resolution_clock::now() - loop_start).count();
+        
+        if (interval_us > elapsed) {
+            std::this_thread::sleep_for(std::chrono::microseconds(interval_us - elapsed));
+        }
+        
+        // 每5秒显示统计
+        if (count % 500 == 0) {
+            auto total_time = std::chrono::duration_cast<std::chrono::seconds>(
+                std::chrono::high_resolution_clock::now() - start_time).count();
+            double freq = (total_time > 0) ? (double)count / total_time : 0.0;
+            std::cout << "[STATS] 已发送: " << count << " 条, 频率: " << freq << "Hz" << std::endl;
+        }
+    }
+    
+    std::cout << "发送停止, 总计: " << count << " 条" << std::endl;
+}
+
+void stream_mode(const std::string& topic, const std::map<std::string, double>& initial_params) {
+    g_stream_topic = topic;
+    {
+        std::lock_guard<std::mutex> lock(g_stream_mutex);
+        g_stream_params = initial_params;
+    }
+    g_stream_running = true;
+    
+    std::cout << "=== 流式发送模式 ===\n";
+    std::cout << "Topic: " << topic << " (100Hz)" << std::endl;
+    std::cout << "初始参数: ";
+    for (const auto& [key, value] : initial_params) {
+        std::cout << key << "=" << value << " ";
+    }
+    std::cout << "\n\n";
+    
+    // 启动发送线程
+    std::thread sender([topic]() {
+        const int64_t interval_us = 10000; // 100Hz
+        uint64_t count = 0;
+        
+        while (g_stream_running && g_running) {
+            auto loop_start = std::chrono::high_resolution_clock::now();
+            
+            std::map<std::string, double> current_params;
+            {
+                std::lock_guard<std::mutex> lock(g_stream_mutex);
+                current_params = g_stream_params;
+            }
+            
+            if (send_message(topic, current_params)) count++;
+            
+            auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::high_resolution_clock::now() - loop_start).count();
+            
+            if (interval_us > elapsed) {
+                std::this_thread::sleep_for(std::chrono::microseconds(interval_us - elapsed));
+            }
+            
+            if (count % 500 == 0) {
+                std::cout << "[STATS] 已发送: " << count << " 条" << std::endl;
+            }
+        }
+        
+        std::cout << "\n[INFO] 发送线程停止, 总计: " << count << " 条" << std::endl;
+    });
+    
+    // 处理用户输入
+    std::cout << "输入新参数更新消息 (格式: key=value 或 key value):\n";
+    std::cout << "'show' 查看当前参数, 'quit' 退出\n\n";
+    
+    std::string line;
+    while (g_stream_running && g_running && std::getline(std::cin, line)) {
+        if (line.empty()) continue;
+        
+        if (line == "quit" || line == "exit" || line == "q") {
+            break;
+        } else if (line == "show") {
+            std::lock_guard<std::mutex> lock(g_stream_mutex);
+            std::cout << "当前参数: ";
+            for (const auto& [key, value] : g_stream_params) {
+                std::cout << key << "=" << value << " ";
+            }
+            std::cout << std::endl;
+        } else {
+            // 解析输入
+            std::istringstream iss(line);
+            std::string key, value_str;
+            if (line.find('=') != std::string::npos) {
+                size_t eq_pos = line.find('=');
+                key = line.substr(0, eq_pos);
+                value_str = line.substr(eq_pos + 1);
+            } else if (iss >> key >> value_str) {
+                // key value 格式
+            } else {
+                std::cout << "格式错误，请使用: key=value 或 key value" << std::endl;
+                continue;
+            }
+            
+            try {
+                double value = std::stod(value_str);
+                {
+                    std::lock_guard<std::mutex> lock(g_stream_mutex);
+                    g_stream_params[key] = value;
+                }
+                std::cout << "[UPDATE] " << key << "=" << value << std::endl;
+            } catch (const std::exception&) {
+                std::cout << "[ERROR] 无法解析值: " << value_str << std::endl;
+            }
+        }
+    }
+    
+    g_stream_running = false;
+    if (sender.joinable()) sender.join();
+    std::cout << "[INFO] 流式发送模式结束" << std::endl;
+}
+
+void show_usage(const char* prog_name) {
+    std::cout << "=== J6云端MQTT发送器(简化版) ===\n\n";
+    std::cout << "使用方法:\n";
+    std::cout << "  " << prog_name << " send <topic> [key=value...]     # 发送单条消息\n";
+    std::cout << "  " << prog_name << " continuous <topic> [key=value...] # 持续100Hz发送\n";
+    std::cout << "  " << prog_name << " stream <topic> [key=value...]   # 流式发送，可动态更新\n";
+    std::cout << "  " << prog_name << " help                           # 显示帮助\n\n";
+    
+    std::cout << "topic 可以是:\n";
+    std::cout << "  control_cmd, handshake_request, handshake_response, vehicle_status\n";
+    std::cout << "  或完整路径如 /vehicle/control_cmd\n\n";
+    
+    std::cout << "示例:\n";
+    std::cout << "  " << prog_name << " send control_cmd steering_angle=15.5 target_acceleration=0.8\n";
+    std::cout << "  " << prog_name << " send handshake_request remote_override_status=1\n";
+    std::cout << "  " << prog_name << " continuous vehicle_status speed=30.0\n";
+    std::cout << "  " << prog_name << " stream control_cmd steering_angle=10.0\n\n";
+}
+
+void signal_handler(int signal) {
+    std::cout << "\n接收到停止信号，准备退出..." << std::endl;
+    g_running = false;
+    g_stream_running = false;
 }
 
 int main(int argc, char* argv[]) {
-    std::cout << "=== J6下行系统 - 云端MQTT发送器 ===" << std::endl;
-
+    std::cout << "=== J6下行系统 - 云端MQTT发送器(简化版) ===" << std::endl;
+    
     signal(SIGINT, signal_handler);
     signal(SIGTERM, signal_handler);
-
-    // 加载配置文件
-    std::string config_file = (argc > 1) ? argv[1] : "/home/wjj/work/project_root/j6/downlink/config/downlink_config.json";
     
+    if (argc < 2 || std::string(argv[1]) == "help") {
+        show_usage(argv[0]);
+        return 0;
+    }
+    
+    // 加载配置和初始化
+    std::string config_file = "/home/wjj/work/project_root/j6/downlink/config/downlink_config.json";
     g_config = std::make_unique<ConfigManager>();
     if (!g_config->loadConfig(config_file)) {
-        std::cerr << "[ERROR] 加载配置文件失败: " << config_file << std::endl;
+        std::cerr << "[ERROR] 加载配置文件失败" << std::endl;
         return 1;
     }
     
-    g_config->printConfig();
-
-    // 初始化异步日志系统
     g_logger = std::make_unique<AsyncLogger>();
     auto logging_config = g_config->getLoggingConfig();
     if (!g_logger->init(logging_config.log_base_dir)) {
-        std::cerr << "[ERROR] 异步日志系统初始化失败!" << std::endl;
+        std::cerr << "[ERROR] 日志系统初始化失败" << std::endl;
         return 1;
     }
-
+    
     if (!init_mqtt()) {
         cleanup();
         return 1;
     }
-
-    if (argc == 1 || (argc == 2 && argv[1] == config_file)) {
-        // 默认模式：使用配置文件的参数
-        std::string default_topic = g_config->getString("cloud_mqtt_sender.default_topic", "/vehicle/control_cmd");
-        int default_freq = g_config->getInt("cloud_mqtt_sender.default_frequency_hz", 100);
-        
-        std::cout << "默认模式: " << default_freq << "Hz发送 " << default_topic << std::endl;
-        
-        // 从配置文件获取默认参数
-        std::map<std::string, double> default_params = g_config->getParamsMap("cloud_mqtt_sender.default_params");
-        if (default_params.empty()) {
-            // 如果配置文件没有参数，使用硬编码默认值 - 所有字段都为0
-            default_params = {
-                {"steering_angle_enable", 0.0},
-                {"steering_angle", 0.0},
-                {"target_acceleration_enable", 0.0},
-                {"target_acceleration", 0.0},
-                {"indicator_left_enable", 0.0},
-                {"indicator_left", 0.0},
-                {"indicator_right_enable", 0.0},
-                {"indicator_right", 0.0},
-                {"gear_position_enable", 0.0},
-                {"gear_position", 0.0},
-                {"ebrake_status_enable", 0.0},
-                {"ebrake_status", 0.0}
-            };
-        }
-        
-        continuous_single_topic_mode(default_topic, default_params);
-        
-    } else if (argc >= 3 && std::string(argv[1]) == "continuous") {
-        // 指定topic持续100Hz发送
+    
+    // 解析命令
+    std::string cmd = argv[1];
+    
+    if (cmd == "send" && argc >= 3) {
         std::string topic = normalize_topic(argv[2]);
-        std::map<std::string, double> params = parse_params(argc, argv, 3);
-        continuous_single_topic_mode(topic, params);
+        auto params = parse_params(argc, argv, 3);
+        send_mode(topic, params);
         
-    } else if (argc >= 5 && std::string(argv[1]) == "custom") {
-        // 自定义发送模式
+    } else if (cmd == "continuous" && argc >= 3) {
         std::string topic = normalize_topic(argv[2]);
-        int frequency_hz = std::atoi(argv[3]);
-        int duration_sec = std::atoi(argv[4]);
+        auto params = parse_params(argc, argv, 3);
+        continuous_mode(topic, params);
         
-        if (frequency_hz < 1 || frequency_hz > 1000 || duration_sec < 1 || duration_sec > 3600) {
-            std::cerr << "参数错误: 频率1-1000Hz, 时间1-3600秒" << std::endl;
-            cleanup();
-            return 1;
-        }
+    } else if (cmd == "stream" && argc >= 3) {
+        std::string topic = normalize_topic(argv[2]);
+        auto params = parse_params(argc, argv, 3);
+        stream_mode(topic, params);
         
-        std::map<std::string, double> params = parse_params(argc, argv, 5);
-        custom_send_mode(topic, frequency_hz, duration_sec, params);
-        
-    } else if (argc >= 2 && (std::string(argv[1]) == "help" || std::string(argv[1]) == "-h")) {
-        show_usage(argv[0]);
     } else {
         std::cout << "参数错误" << std::endl;
         show_usage(argv[0]);
         cleanup();
         return 1;
     }
-
+    
     cleanup();
     return 0;
 }

@@ -42,3 +42,4 @@ message(STATUS "=== FastDDS 2.6.10 HelloWorld Demo ===")
 message(STATUS "Publisher: ./publisher [samples]")
 message(STATUS "Subscriber: ./subscriber [samples]")
 message(STATUS "FastDDS 路径: /usr/local/fastdds-2.6.10")
+

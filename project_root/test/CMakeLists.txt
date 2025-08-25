@@ -5,15 +5,23 @@ project(test_programs VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 查找依赖包
-find_package(fastdds REQUIRED)
+# 设置FastDDS 2.6.10路径 - 通过环境变量或默认路径
+if(DEFINED ENV{FASTDDS_ROOT})
+    list(APPEND CMAKE_PREFIX_PATH "$ENV{FASTDDS_ROOT}")
+else()
+    list(APPEND CMAKE_PREFIX_PATH "/usr/local/fastdds-2.6.10")
+endif()
+
+# 查找依赖包 - FastDDS 2.6.10使用fastrtps包名
+find_package(fastrtps REQUIRED)
+find_package(fastcdr REQUIRED)
 
 # 设置fastdds_lib路径
 set(FASTDDS_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../fastdds_lib)
 
 # 查找jsoncpp
 find_library(JSONCPP_LIBRARY NAMES jsoncpp)
-find_path(JSONCPP_INCLUDE_DIR NAMES json/json.h PATHS /usr/include/jsoncpp)
+find_path(JSONCPP_INCLUDE_DIR NAMES json/json.h)
 
 # 包含目录
 include_directories(
@@ -33,7 +41,8 @@ link_directories(${FASTDDS_LIB_DIR}/build)
 add_executable(publisher publisher.cpp)
 target_link_libraries(publisher 
     fastdds_lib
-    fastdds
+    fastrtps
+    fastcdr
     pthread
 )
 
@@ -41,7 +50,8 @@ target_link_libraries(publisher
 add_executable(subscriber subscriber.cpp)
 target_link_libraries(subscriber
     fastdds_lib
-    fastdds
+    fastrtps
+    fastcdr
     pthread
 )
 
@@ -49,7 +59,8 @@ target_link_libraries(subscriber
 add_executable(fastdds_to_mqtt_bridge fastdds_to_mqtt_bridge.cpp)
 target_link_libraries(fastdds_to_mqtt_bridge
     fastdds_lib
-    fastdds
+    fastrtps
+    fastcdr
     pthread
     mosquitto
 )
@@ -72,7 +83,8 @@ target_link_libraries(mqtt_sender
 add_executable(mqtt_to_fastdds_bridge mqtt_to_fastdds_bridge.cpp)
 target_link_libraries(mqtt_to_fastdds_bridge
     fastdds_lib
-    fastdds
+    fastrtps
+    fastcdr
     pthread
     mosquitto
     ${JSONCPP_LIBRARY}
