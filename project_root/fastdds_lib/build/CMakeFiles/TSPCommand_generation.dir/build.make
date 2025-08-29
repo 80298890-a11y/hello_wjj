@@ -73,7 +73,7 @@ CMakeFiles/TSPCommand_generation: /home/wjj/work/project_root/generated_types/TS
 /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx: /home/wjj/work/project_root/idl/TSPCommand.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating FastDDS types for TSPCommand.idl to generated_types/TSPCommand/"
 	/usr/bin/cmake -E make_directory /home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand
-	/usr/local/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand /home/wjj/work/project_root/fastdds_lib/../idl/TSPCommand.idl
+	/usr/local/fastdds-2.6.10/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/TSPCommand /home/wjj/work/project_root/fastdds_lib/../idl/TSPCommand.idl
 
 /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx: /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandPubSubTypes.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/TSPCommand/TSPCommandTypeObjectSupport.cxx

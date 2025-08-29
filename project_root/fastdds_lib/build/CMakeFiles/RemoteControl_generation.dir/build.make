@@ -73,7 +73,7 @@ CMakeFiles/RemoteControl_generation: /home/wjj/work/project_root/generated_types
 /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx: /home/wjj/work/project_root/idl/RemoteControl.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating FastDDS types for RemoteControl.idl to generated_types/RemoteControl/"
 	/usr/bin/cmake -E make_directory /home/wjj/work/project_root/fastdds_lib/../generated_types/RemoteControl
-	/usr/local/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/RemoteControl /home/wjj/work/project_root/fastdds_lib/../idl/RemoteControl.idl
+	/usr/local/fastdds-2.6.10/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/RemoteControl /home/wjj/work/project_root/fastdds_lib/../idl/RemoteControl.idl
 
 /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx: /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/RemoteControl/RemoteControlTypeObjectSupport.cxx

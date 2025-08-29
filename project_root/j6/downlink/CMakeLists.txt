@@ -9,6 +9,7 @@ set(CMAKE_PREFIX_PATH "/usr/local/fastdds-2.6.10")
 
 # 查找FastDDS 2.6.10包
 find_package(fastrtps REQUIRED PATHS /usr/local/fastdds-2.6.10)
+find_package(fastcdr REQUIRED PATHS /usr/local/fastdds-2.6.10)
 
 # 查找jsoncpp
 find_library(JSONCPP_LIBRARY NAMES jsoncpp)

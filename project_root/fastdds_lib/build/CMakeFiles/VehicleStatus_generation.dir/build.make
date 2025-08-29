@@ -73,7 +73,7 @@ CMakeFiles/VehicleStatus_generation: /home/wjj/work/project_root/generated_types
 /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx: /home/wjj/work/project_root/idl/VehicleStatus.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating FastDDS types for VehicleStatus.idl to generated_types/VehicleStatus/"
 	/usr/bin/cmake -E make_directory /home/wjj/work/project_root/fastdds_lib/../generated_types/VehicleStatus
-	/usr/local/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/VehicleStatus /home/wjj/work/project_root/fastdds_lib/../idl/VehicleStatus.idl
+	/usr/local/fastdds-2.6.10/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/VehicleStatus /home/wjj/work/project_root/fastdds_lib/../idl/VehicleStatus.idl
 
 /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx: /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/VehicleStatus/VehicleStatusTypeObjectSupport.cxx

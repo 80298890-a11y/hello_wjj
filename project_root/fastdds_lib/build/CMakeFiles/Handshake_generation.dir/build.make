@@ -73,7 +73,7 @@ CMakeFiles/Handshake_generation: /home/wjj/work/project_root/generated_types/Han
 /home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx: /home/wjj/work/project_root/idl/Handshake.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wjj/work/project_root/fastdds_lib/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating FastDDS types for Handshake.idl to generated_types/Handshake/"
 	/usr/bin/cmake -E make_directory /home/wjj/work/project_root/fastdds_lib/../generated_types/Handshake
-	/usr/local/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/Handshake /home/wjj/work/project_root/fastdds_lib/../idl/Handshake.idl
+	/usr/local/fastdds-2.6.10/bin/fastddsgen -replace -d /home/wjj/work/project_root/fastdds_lib/../generated_types/Handshake /home/wjj/work/project_root/fastdds_lib/../idl/Handshake.idl
 
 /home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx: /home/wjj/work/project_root/generated_types/Handshake/HandshakePubSubTypes.cxx
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/wjj/work/project_root/generated_types/Handshake/HandshakeTypeObjectSupport.cxx

@@ -5,8 +5,18 @@ project(fastdds_lib VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 查找依赖包
-find_package(fastdds REQUIRED)
+# 设置FastDDS 2.6.10路径 - 确保版本一致性
+set(CMAKE_PREFIX_PATH "/usr/local/fastdds-2.6.10")
+
+# 查找FastDDS 2.6.10包
+find_package(fastrtps REQUIRED PATHS /usr/local/fastdds-2.6.10)
+find_package(fastcdr REQUIRED PATHS /usr/local/fastdds-2.6.10)
+
+# 包含FastDDS 2.6.10头文件目录 - 优先于系统默认路径
+include_directories(BEFORE /usr/local/fastdds-2.6.10/include)
+
+# 链接FastDDS 2.6.10库目录 - 优先于系统默认路径  
+link_directories(BEFORE /usr/local/fastdds-2.6.10/lib)
 
 # 查找libmosquitto
 find_library(MOSQUITTO_LIBRARY NAMES mosquitto)
@@ -82,23 +92,23 @@ foreach(IDL_FILE ${IDL_FILES})
     )
 endforeach()
 
-# 创建静态库 (包含发布者和订阅者)
+# 创建静态库 (包含发布者和订阅者) - 暂时排除生成的源文件
 add_library(fastdds_lib STATIC
     src/fastdds_publisher.cpp
     src/fastdds_mqtt_publisher.cpp
     src/fastdds_subscriber.cpp
     src/mqtt_mosquitto.cpp
     src/mqtt_to_fastdds_converter.cpp
-    ${GENERATED_SOURCES}
+    # ${GENERATED_SOURCES}  # 暂时注释，使用简化实现
 )
 
-# 添加依赖关系
-add_dependencies(fastdds_lib 
-    Handshake_generation 
-    VehicleStatus_generation 
-    RemoteControl_generation
-    TSPCommand_generation
-)
+# 添加依赖关系 - 暂时注释
+# add_dependencies(fastdds_lib 
+#     Handshake_generation 
+#     VehicleStatus_generation 
+#     RemoteControl_generation
+#     TSPCommand_generation
+# )
 
 # 设置包含目录（包含所有IDL子目录）
 target_include_directories(fastdds_lib 
@@ -117,7 +127,8 @@ target_include_directories(fastdds_lib
 # 链接库
 target_link_libraries(fastdds_lib 
     PUBLIC 
-        fastdds
+        fastrtps
+        fastcdr
         ${MOSQUITTO_LIBRARY}
         ${JSONCPP_LIBRARY}
 )

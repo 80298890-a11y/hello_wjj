@@ -8,14 +8,15 @@
 #include <unordered_set>
 #include <mutex>
 
-#include <fastdds/dds/domain/DomainParticipant.hpp>
-#include <fastdds/dds/subscriber/Subscriber.hpp>
-#include <fastdds/dds/topic/Topic.hpp>
-#include <fastdds/dds/subscriber/DataReader.hpp>
-#include <fastdds/dds/subscriber/DataReaderListener.hpp>
-#include <fastdds/dds/core/policy/QosPolicies.hpp>
+#include <fastrtps/Domain.h>
+#include <fastrtps/participant/Participant.h>
+#include <fastrtps/attributes/ParticipantAttributes.h>
+#include <fastrtps/subscriber/Subscriber.h>
+#include <fastrtps/attributes/SubscriberAttributes.h>
+#include <fastrtps/subscriber/SubscriberListener.h>
+#include <fastrtps/TopicDataType.h>
 
-using namespace eprosima::fastdds::dds;
+using namespace eprosima::fastrtps;
 
 // 前向声明（在remote_msgs命名空间中）
 namespace remote_msgs {
@@ -121,23 +122,38 @@ public:
      * @brief 订阅所有主题
      * @return 成功返回true，失败返回false
      */
-
-
-
     bool subscribeAllTopics();
+
+    /**
+     * @brief 开始监听消息
+     * @return 成功返回true，失败返回false
+     */
+    bool startListening();
+    
+    /**
+     * @brief 停止监听消息
+     */
+    void stopListening();
+    
+    // 方法名简化映射
+    bool subscribeToHandshakeRequest(const std::string& topic = "/handshake/request");
+    bool subscribeToHandshakeResponse(const std::string& topic = "/handshake/response"); 
+    bool subscribeToVehicleStatus(const std::string& topic = "/vehicle/vehicle_status");
+    bool subscribeToRemoteControl(const std::string& topic = "/vehicle/control_cmd");
 
 protected:
     // =========================== 内部辅助方法 ===========================
     
-    /**
-     * @brief 获取或创建主题
-     */
-    Topic* getOrCreateTopic(const std::string& topic_name, const std::string& type_name, TypeSupport& type_support);
+    // 暂时注释复杂方法，使用 FastRTPS 2.6.10 简化实现
+    // /**
+    //  * @brief 获取或创建主题
+    //  */
+    // Topic* getOrCreateTopic(const std::string& topic_name, const std::string& type_name, TypeSupport& type_support);
     
-    /**
-     * @brief 获取或创建数据读取器
-     */
-    DataReader* getOrCreateReader(Topic* topic, DataReaderListener* listener);
+    // /**
+    //  * @brief 获取或创建数据读取器
+    //  */
+    // DataReader* getOrCreateReader(Topic* topic, DataReaderListener* listener);
 
     // =========================== 监听器类 ===========================
     
@@ -148,18 +164,18 @@ protected:
 
 
 private:
-    // DDS 实体
-    DomainParticipant* participant_;
-    Subscriber* subscriber_;
+    // FastRTPS 实体
+    Participant* participant_;
+    eprosima::fastrtps::Subscriber* subscriber_;
     int domain_id_;
 
-    // 主题和读取器管理
-    std::unordered_map<std::string, Topic*> topics_;
-    std::unordered_map<std::string, DataReader*> readers_;
-    std::unordered_map<std::string, TypeSupport> type_supports_;
+    // 主题和读取器管理 - 暂时注释，FastRTPS 2.6.10 API 不同
+    // std::unordered_map<std::string, Topic*> topics_;
+    // std::unordered_map<std::string, DataReader*> readers_;
+    // std::unordered_map<std::string, TypeSupport> type_supports_;
     
-    // 监听器实例
-    std::unordered_map<std::string, std::unique_ptr<DataReaderListener>> listeners_;
+    // 监听器实例 - 暂时注释，FastRTPS 2.6.10 API 不同
+    // std::unordered_map<std::string, std::unique_ptr<DataReaderListener>> listeners_;
 
     // 回调函数
     HandshakeRequestCallback handshake_request_callback_;

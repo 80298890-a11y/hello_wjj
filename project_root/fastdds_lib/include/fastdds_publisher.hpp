@@ -6,14 +6,14 @@
 #include <functional>
 #include <unordered_map>
 
-#include <fastdds/dds/domain/DomainParticipant.hpp>
-#include <fastdds/dds/publisher/Publisher.hpp>
-#include <fastdds/dds/topic/Topic.hpp>
-#include <fastdds/dds/publisher/DataWriter.hpp>
-#include <fastdds/dds/core/policy/QosPolicies.hpp>
+#include <fastrtps/Domain.h>
+#include <fastrtps/participant/Participant.h>
+#include <fastrtps/attributes/ParticipantAttributes.h>
+#include <fastrtps/publisher/Publisher.h>
+#include <fastrtps/attributes/PublisherAttributes.h>
+#include <fastrtps/TopicDataType.h>
 
-
-using namespace eprosima::fastdds::dds;
+using namespace eprosima::fastrtps;
 
 // 前向声明（在remote_msgs命名空间中）
 namespace remote_msgs {
@@ -177,36 +177,37 @@ public:
     static uint64_t getCurrentTimestamp();
 
 private:
-    // FastDDS 核心组件
-    DomainParticipant* participant_;
-    Publisher* publisher_;
+    // FastRTPS 核心组件
+    Participant* participant_;
+    eprosima::fastrtps::Publisher* publisher_;
     int domain_id_;
     
-    // 主题和数据写入器的缓存
-    std::unordered_map<std::string, Topic*> topics_;
-    std::unordered_map<std::string, DataWriter*> writers_;
-    std::unordered_map<std::string, TypeSupport> type_supports_;
+    // 主题和数据写入器的缓存 - 暂时注释，FastRTPS 2.6.10 API 不同
+    // std::unordered_map<std::string, Topic*> topics_;
+    // std::unordered_map<std::string, DataWriter*> writers_;
+    // std::unordered_map<std::string, TypeSupport> type_supports_;
     
     // 发送频率控制
     int publish_frequency_hz_;
     
-    /**
-     * @brief 创建或获取主题
-     * @param topic_name 主题名称
-     * @param type_name 类型名称
-     * @param type_support 类型支持
-     * @return 主题指针，失败返回nullptr
-     */
-    Topic* getOrCreateTopic(const std::string& topic_name, 
-                           const std::string& type_name,
-                           TypeSupport type_support);
+    // 暂时注释复杂的方法，使用 FastRTPS 2.6.10 简化实现
+    // /**
+    //  * @brief 创建或获取主题
+    //  * @param topic_name 主题名称
+    //  * @param type_name 类型名称
+    //  * @param type_support 类型支持
+    //  * @return 主题指针，失败返回nullptr
+    //  */
+    // Topic* getOrCreateTopic(const std::string& topic_name, 
+    //                        const std::string& type_name,
+    //                        TypeSupport type_support);
     
-    /**
-     * @brief 创建或获取数据写入器
-     * @param topic 主题
-     * @return 数据写入器指针，失败返回nullptr
-     */
-    DataWriter* getOrCreateWriter(Topic* topic);
+    // /**
+    //  * @brief 创建或获取数据写入器
+    //  * @param topic 主题
+    //  * @return 数据写入器指针，失败返回nullptr
+    //  */
+    // DataWriter* getOrCreateWriter(Topic* topic);
 };
 
 #endif // FASTDDS_PUBLISHER_HPP
