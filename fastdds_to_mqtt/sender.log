@@ -1,0 +1,1513 @@
+==========================================
+    FastDDS 发送端启动脚本
+==========================================
+[0;32m[INFO][0m 停止现有程序...
+[0;32m[INFO][0m 停止 FastDDS 订阅者...
+[0;32m[INFO][0m 停止 FastDDS 发布者...
+[0;32m[INFO][0m 编译程序...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/wjj/work/fastdds_to_mqtt/build
+Consolidate compiler generated dependencies of target CloudToVehicle
+[ 42%] Built target CloudToVehicle
+Consolidate compiler generated dependencies of target fastdds_subscriber
+[ 71%] Built target fastdds_subscriber
+Consolidate compiler generated dependencies of target fastdds_publisher
+[100%] Built target fastdds_publisher
+[0;32m[INFO][0m 编译完成
+[0;32m[INFO][0m 启动程序...
+[0;32m[INFO][0m 启动 FastDDS 订阅者...
+[0;32m[INFO][0m FastDDS 订阅者已启动 (PID: 627464)
+[0;32m[INFO][0m 等待订阅者初始化...
+Starting CloudToVehicle Subscriber with MQTT Bridge...
+正在初始化订阅者...
+正在初始化MQTT客户端...
+MQTT客户端创建成功
+正在连接到MQTT服务器 hellorobotaxi.cn:11883...
+MQTT服务器连接成功
+正在启动MQTT事件循环...
+MQTT事件循环启动成功
+正在初始化FastDDS...
+创建DDS参与者...
+DDS参与者创建成功
+注册数据类型...
+数据类型注册成功
+创建主题...
+主题创建成功
+创建订阅者...
+订阅者创建成功
+创建数据读取器...
+数据读取器创建成功
+FastDDS初始化完成
+订阅者初始化完成
+[0;32m[INFO][0m 启动 FastDDS 发布者...
+[0;32m[INFO][0m FastDDS 发布者已启动 (PID: 627541)
+[0;32m[INFO][0m 检查程序状态...
+Starting CloudToVehicle Publisher...
+[0;32m[INFO][0m ✓ FastDDS 订阅者运行中 (PID: 627464)
+[0;32m[INFO][0m ✓ FastDDS 发布者运行中 (PID: 627541)
+
+==========================================
+[0;32m[INFO][0m 发送端启动完成！
+[0;32m[INFO][0m 使用 './stop_sender.sh' 停止所有程序
+==========================================
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968951376,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":1,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968952377,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":2,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968953377,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":3,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968954378,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":4,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968955379,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":5,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968956380,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":6,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968957380,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":7,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968958381,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":8,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968959382,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":9,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968960382,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":10,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968961382,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":11,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968962383,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":12,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968963384,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":13,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968964385,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":14,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968965385,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":15,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968966386,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":16,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968967386,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":17,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968968386,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":18,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968969386,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":19,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968970386,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":20,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968971387,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":21,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968972388,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":22,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968973389,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":23,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968974390,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":24,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968975390,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":25,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968976391,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":26,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968977391,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":27,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968978393,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":28,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968979393,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":29,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968980394,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":30,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968981395,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":31,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968982395,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":32,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968983395,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":33,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968984396,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":34,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968985399,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":35,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968986398,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":36,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968987399,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":37,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968988399,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":38,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968989399,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":39,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968990401,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":40,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968991400,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":41,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968992400,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":42,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968993401,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":43,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968994401,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":44,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968995402,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":45,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968996402,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":46,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968997402,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":47,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968998403,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":48,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753968999403,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":49,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969000405,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":50,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969001404,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":51,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969002404,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":52,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969003405,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":53,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969004405,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":54,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969005407,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":55,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969006406,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":56,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969007406,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":57,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969008406,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":58,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969009407,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":59,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969010409,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":60,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969011408,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":61,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969012409,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":62,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969013409,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":63,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969014409,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":64,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969015410,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":65,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969016410,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":66,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969017410,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":67,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969018411,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":68,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969019410,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":69,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969020411,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":70,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969021411,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":71,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969022412,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":72,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969023412,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":73,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969024413,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":74,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969025414,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":75,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969026414,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":76,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969027414,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":77,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969028414,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":78,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969029414,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":79,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969030415,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":80,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969031416,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":81,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969032417,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":82,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969033417,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":83,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969034418,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":84,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969035418,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":85,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969036420,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":86,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969037420,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":87,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969038421,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":88,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969039422,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":89,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969040425,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":90,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969041424,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":91,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969042424,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":92,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969043425,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":93,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969044426,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":94,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969045427,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":95,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969046428,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":96,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969047428,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":97,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969048429,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":98,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969049430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":99,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969050430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":100,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969051430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":101,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969052430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":102,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969053430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":103,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969054430,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":104,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969055431,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":105,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969056434,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":106,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969057433,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":107,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969058434,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":108,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969059435,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":109,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969060435,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":110,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969061436,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":111,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969062437,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":112,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969063438,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":113,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969064439,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":114,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969065439,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":115,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969066441,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":116,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969067441,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":117,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969068442,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":118,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969069442,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":119,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969070443,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":120,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969071446,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":121,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969072446,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":122,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969073447,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":123,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969074448,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":124,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969075448,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":125,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969076450,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":126,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969077449,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":127,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969078450,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":128,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969079450,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":129,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969080452,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":130,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969081454,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":131,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969082453,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":132,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969083453,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":133,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969084454,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":134,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969085455,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":135,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969086456,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":136,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969087456,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":137,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969088456,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":138,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969089457,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":139,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969090458,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":140,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969091459,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":141,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969092458,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":142,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969093458,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":143,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969094459,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":144,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969095459,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":145,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969096460,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":146,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969097460,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":147,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969098461,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":148,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969099461,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":149,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969100463,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":150,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969101463,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":151,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969102464,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":152,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969103464,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":153,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969104465,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":154,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969105465,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":155,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969106466,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":156,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969107466,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":157,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969108467,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":158,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969109467,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":159,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969110467,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":160,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969111468,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":161,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969112469,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":162,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969113471,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":163,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969114471,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":164,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969115472,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":165,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969116473,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":166,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969117473,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":167,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969118473,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":168,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969119474,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":169,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969120475,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":170,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969121475,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":171,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969122476,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":172,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969123477,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":173,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969124477,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":174,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969125479,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":175,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969126479,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":176,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969127479,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":177,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969128480,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":178,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969129480,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":179,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969130480,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":180,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969131481,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":181,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969132482,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":182,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969133482,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":183,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969134483,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":184,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969135484,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":185,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969136485,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":186,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969137485,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":187,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969138486,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":188,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969139486,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":189,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969140487,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":190,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969141487,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":191,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969142488,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":192,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969143489,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":193,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969144489,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":194,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969145490,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":195,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969146490,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":196,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969147490,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":197,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969148490,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":198,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969149490,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":199,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969150491,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":200,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969151491,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":201,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969152492,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":202,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969153492,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":203,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969154493,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":204,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969155493,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":205,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969156494,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":206,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969157494,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":207,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969158494,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":208,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969159495,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":209,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969160496,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":210,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969161496,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":211,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969162497,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":212,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969163498,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":213,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969164498,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":214,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969165499,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":215,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969166500,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":216,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969167500,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":217,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969168501,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":218,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969169502,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":219,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969170502,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":220,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969171502,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":221,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969172503,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":222,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969173504,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":223,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969174504,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":224,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969175505,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":225,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969176506,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":226,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969177506,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":227,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969178508,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":228,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969179509,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":229,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969180509,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":230,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969181510,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":231,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969182511,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":232,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969183511,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":233,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969184512,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":234,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969185513,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":235,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969186513,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":236,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969187515,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":237,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969188515,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":238,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969189515,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":239,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969190516,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":240,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969191517,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":241,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969192517,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":242,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969193517,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":243,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969194518,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":244,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969195519,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":245,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969196520,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":246,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969197521,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":247,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969198521,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":248,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969199522,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":249,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969200523,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":250,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969201524,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":251,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969202525,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":252,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969203526,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":253,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969204526,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":254,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969205527,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":255,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969206528,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":256,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969207528,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":257,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969208529,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":258,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969209530,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":259,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969210530,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":260,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969211530,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":261,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969212530,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":262,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969213531,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":263,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969214532,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":264,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969215532,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":265,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969216532,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":266,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969217535,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":267,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969218534,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":268,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969219534,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":269,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969220534,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":270,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969221535,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":271,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969222537,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":272,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969223536,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":273,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969224537,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":274,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969225539,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":275,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969226539,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":276,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969227539,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":277,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969228540,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":278,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969229541,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":279,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969230541,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":280,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969231542,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":281,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969232543,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":282,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969233544,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":283,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969234544,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":284,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969235546,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":285,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969236546,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":286,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969237596,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":287,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969238548,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":288,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969239549,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":289,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969240549,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":290,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969241549,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":291,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录
+收到新数据...
+准备发送消息: {"a1_timestamp":1753969242551,"ebrake_status":0,"ebrake_status_enable":false,"gear_position":0,"gear_position_enable":false,"indicator_left":false,"indicator_left_enable":false,"indicator_right":false,"indicator_right_enable":false,"remote_drive_ready":false,"remote_drive_takeover_request":false,"sequence_id":292,"steering_angle":0.0,"steering_angle_enable":true,"target_acceleration":0.0,"target_acceleration_enable":true}
+
+MQTT消息发送成功
+日志已记录

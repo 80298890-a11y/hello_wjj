@@ -1,0 +1,10 @@
+module zhijiayun {
+    struct TSPCommand
+    {
+        string action;           // 动作类型，如"start", "stop", "pause"等
+        string module_name;      // 模块名称，如"noa", "parking"等
+        string command_id;       // 命令ID，从topic中提取
+        uint64 cloud_timestamp;  // 云端发送的时间戳
+        uint64 mqtt_timestamp;   // MQTT程序发送的时间戳
+    };
+};

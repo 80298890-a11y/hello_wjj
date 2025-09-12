@@ -1,0 +1,13 @@
+/**
+ * @file TSPCommand.idl
+ * @brief TSP命令消息定义
+ * 用于robotaxi接收TSP平台的控制命令
+ */
+
+struct TSPCommand
+{
+    string action;      // 动作类型，如"start", "stop", "pause"等
+    string module_name;      // 模块名称，如"noa", "parking"等
+    string command_id;  // 命令ID，从topic中提取
+    uint64 timestamp;   // 时间戳
+};

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCloudToVehicle.a CMakeFiles/CloudToVehicle.dir/CloudToVehiclePubSubTypes.cxx.o CMakeFiles/CloudToVehicle.dir/CloudToVehicleTypeObjectSupport.cxx.o
+/usr/bin/ranlib libCloudToVehicle.a

@@ -1,0 +1,29 @@
+// HandShake.idl - 握手请求与响应数据结构
+// 功能：定义远程控制握手协议的数据格式
+// 注意：使用整数字段直接支持负数值 (-1, 0, 1, 2)
+
+module remote_msgs {
+    @extensibility(APPENDABLE)
+    struct HandshakeRequest {
+    // 激活vs取消noa,1为激活成功，-1为取消成功，默认心跳0
+    long noa_active_request;
+    // 请求接管vs请求退出接管,1为请求，-1为请求退出，默认心跳0
+    long remote_override_status;
+    // 确认接管vs确认退出接管，1为确认，0为确认退出
+    long remote_override_ready;
+    // 时间戳
+    unsigned long long timestamp;
+  };
+
+  struct HandshakeResponse {
+    // 回复激活vs取消noa,1为激活成功，-1为取消成功，默认心跳0
+    long noa_active_response;
+    // 回复请求接管vs回复请求退出接管,1为请求，-1为请求退出，默认心跳0
+    long remote_override_response;
+    // 车辆控制状态，true为远程控制，false为车端控制
+    boolean current_control_source;
+    // 时间戳
+    unsigned long long timestamp;
+  };
+
+};

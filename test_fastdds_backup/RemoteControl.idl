@@ -1,0 +1,23 @@
+// RemoteControl.idl - 远程控制命令数据结构
+// 功能：定义远程控制命令的数据格式
+
+module remote_msgs {
+    @extensibility(APPENDABLE)
+    struct ControlCmd {
+        boolean steering_angle_enable;
+        float steering_angle;
+        boolean target_acceleration_enable;
+        float target_acceleration;
+        boolean indicator_left_enable;
+        boolean indicator_left;
+        boolean indicator_right_enable;
+        boolean indicator_right;
+        boolean gear_position_enable;
+        long gear_position;
+        boolean ebrake_status_enable;
+        long ebrake_status;
+        boolean remote_drive_ready;
+        boolean remote_drive_takeover_request;
+        unsigned long long timestamp;
+    };
+};

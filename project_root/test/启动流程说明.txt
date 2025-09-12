@@ -1,0 +1,198 @@
+================================================================
+               MQTT转发链路完整启动流程说明 (更新版)
+================================================================
+
+数据流向：
+MQTTX → tsp/command/123 → tsp_forwarder → cloud/noa/123 → mqtt_simulator 
+→ zhan/send/123 → data_processor → /handshake/request/noa → bridge_forwarder 
+→ 4个IDL话题(400Hz) → mqtt_to_fastdds_bridge → FastDDS → subscriber
+
+================================================================
+                    手动启动顺序 (6个终端窗口)
+================================================================
+
+第1步：启动FastDDS接收端
+----------------------
+cd /home/wjj/work/project_root/test
+./subscriber
+
+作用：接收最终的FastDDS消息，验证整条链路通畅
+等待显示：[SUCCESS] FastDDS订阅者初始化成功
+
+第2步：启动MQTT到FastDDS转换器
+---------------------------
+cd /home/wjj/work/project_root/test
+./mqtt_to_fastdds_bridge
+
+作用：将4个IDL话题消息转换为FastDDS并发送给subscriber
+等待显示：[READY] 桥接器准备完毕，可以接收MQTT消息
+
+第3步：启动数据聚合转发器（400Hz核心）
+----------------------------------
+cd /home/wjj/work/project_root/test
+./bridge_forwarder
+
+作用：聚合4个IDL话题，以400Hz轮流发送(每个IDL 100Hz)
+等待显示：[SUCCESS] 数据聚合转发器启动成功
+         400Hz轮流发送线程启动 - 4个IDL + 新消息检测
+
+第4步：启动数据处理器（接收到就更新）
+--------------------------------
+cd /home/wjj/work/project_root/test
+./data_processor
+
+作用：接收zhan/send/{vid}，处理action字段，每次接收到都更新状态
+等待显示：[SUCCESS] 数据处理器启动成功，等待处理消息...
+重要：新逻辑 - 接收到消息就更新一次，不管状态是否变化
+
+第5步：启动MQTT模拟器
+------------------
+cd /home/wjj/work/project_root/test
+./mqtt_simulator
+
+作用：接收cloud/noa/{vid}，添加时间戳，转发到zhan/send/{vid}
+等待显示：[SUCCESS] MQTT模拟器启动成功，等待处理消息...
+
+第6步：启动TSP转发器
+------------------
+cd /home/wjj/work/project_root/test
+./tsp_forwarder
+
+作用：接收tsp/command/{vid}，添加时间戳，转发到cloud/noa/{vid}
+等待显示：[SUCCESS] TSP转发器启动成功，等待处理消息...
+
+================================================================
+                      使用命令行发送测试消息
+================================================================
+
+基本命令格式：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "主题" -m '消息内容'
+
+测试消息示例：
+
+测试VID 123 (启动)：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/123" -m '{"action":"start","module":"noa","timestamp":1755591299000}'
+
+测试VID 123 (停止)：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/123" -m '{"action":"stop","module":"noa","timestamp":1755591299000}'
+
+测试VID 456 (任意命令)：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/456" -m '{"action":"start","module":"noa","timestamp":1755591299000}'
+
+测试任意VID (如789)：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/789" -m '{"action":"stop","module":"noa","timestamp":1755591299000}'
+
+测试"接收到就更新"机制（连续发送相同命令）：
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/999" -m '{"action":"stop","module":"noa","timestamp":1755591299000}'
+# 等待几秒后再发送相同命令，应该仍会触发更新
+mosquitto_pub -h hellorobotaxi.cn -p 11883 -t "tsp/command/999" -m '{"action":"stop","module":"noa","timestamp":1755591299000}'
+
+================================================================
+                        观察验证点
+================================================================
+
+可以使用以下命令监听各级话题：
+
+1. 监听TSP命令输入：
+mosquitto_sub -h hellorobotaxi.cn -p 11883 -t "tsp/command/+" -v
+
+2. 监听第一级转发：
+mosquitto_sub -h hellorobotaxi.cn -p 11883 -t "cloud/noa/+" -v
+
+3. 监听第二级转发：
+mosquitto_sub -h hellorobotaxi.cn -p 11883 -t "zhan/send/+" -v
+
+4. 监听状态集成（重要）：
+mosquitto_sub -h hellorobotaxi.cn -p 11883 -t "/handshake/request/noa" -v
+*** 应该看到每次接收到消息都会更新，不管状态是否变化 ***
+
+5. 检查FastDDS接收：
+观察subscriber程序终端输出，应显示稳定的400Hz接收频率
+
+链路正常工作时的关键日志：
+
+data_processor 日志区分：
+- 状态变化: "VID-123 状态变更: 1 → 0 (action=stop)"
+- 状态不变: "VID-123 接收到消息: noa_active=0 (action=stop) - 状态保持不变但仍会更新"
+
+bridge_forwarder 新消息检测：
+- [NEW] 发送新消息 [/handshake/request]: {...}
+- [DEFAULT] 发送默认值 [/handshake/request]: {...}
+
+================================================================
+                      关键改进说明
+================================================================
+
+### data_processor 接收到就更新机制
+- **旧逻辑**: 只在状态变化时才发送到/handshake/request/noa
+- **新逻辑**: 接收到消息就更新一次，不管状态是否变化
+- **好处**: 确保bridge_forwarder持续接收状态更新，维持400Hz发送
+
+### bridge_forwarder 数据聚合机制  
+- **400Hz总频率**: 4个IDL话题轮流发送，每个100Hz
+- **新消息检测**: 区分服务器新消息 vs 默认值lastvalue发送
+- **IDL话题**: /handshake/request, /handshake/response, /vehicle/status, /vehicle/control_cmd
+- **状态驱动**: /handshake/request有外部状态源，其他3个使用默认值
+
+### 多级时间戳追踪
+- timestamp: 云端原始时间戳
+- mqtt_send_timestamp: tsp_forwarder添加
+- simulator_timestamp: mqtt_simulator添加
+
+================================================================
+                          故障排查
+================================================================
+
+1. 程序启动顺序：必须按照1-6的顺序启动
+2. 网络连接：确保能连接hellorobotaxi.cn:11883
+3. 进程状态检查：
+   ps aux | grep -E "(tsp_forwarder|mqtt_simulator|data_processor|bridge_forwarder|mqtt_to_fastdds_bridge|subscriber)" | grep -v grep
+
+4. 查看实时日志：
+   tail -f logs/data_processor/$(ls -t logs/data_processor/*.log | head -1)
+   tail -f logs/bridge_forwarder/$(ls -t logs/bridge_forwarder/*.log | head -1)
+
+常见问题：
+- subscriber没收到：检查mqtt_to_fastdds_bridge
+- 频率不稳定：检查bridge_forwarder是否正常运行
+- 状态不更新：检查data_processor的新逻辑是否生效
+
+================================================================
+                          VID独立性
+================================================================
+
+支持动态VID：
+- 系统自动支持任意数字VID（123, 456, 789等）
+- 每个VID有独立的数据流处理
+- 通配符订阅：tsp/command/+, cloud/noa/+, zhan/send/+
+- 可同时测试多个VID而互不干扰
+
+================================================================
+                            日志位置
+================================================================
+
+所有程序日志保存在：
+/home/wjj/work/project_root/test/logs/{program_name}/YYYYMMDD_HHMMSS_mmm.log
+
+程序对应目录：
+- subscriber: logs/fastdds/sub/
+- mqtt_to_fastdds_bridge: logs/fastdds_mqtt/mqtt_to_fastdds/
+- bridge_forwarder: logs/bridge_forwarder/
+- data_processor: logs/data_processor/
+- mqtt_simulator: logs/mqtt_simulator/  
+- tsp_forwarder: logs/tsp_forwarder/
+
+================================================================
+                          一键操作
+================================================================
+
+停止所有程序：
+pkill -f "mqtt|fastdds|bridge|publisher|subscriber|tsp_forwarder|mqtt_simulator|data_processor|bridge_forwarder"
+
+重新编译所有程序：
+cd build && make -j$(nproc) && cd ..
+
+检查程序状态：
+ps aux | grep -E "(tsp_forwarder|mqtt_simulator|data_processor|bridge_forwarder)" | grep -v grep
+
+================================================================
