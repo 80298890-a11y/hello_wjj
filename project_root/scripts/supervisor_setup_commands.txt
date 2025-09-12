@@ -1,0 +1,84 @@
+=== FastDDS到MQTT桥接服务 Supervisor安装命令清单 ===
+
+# 1. 安装supervisor (如果尚未安装)
+sudo apt update
+sudo apt install -y supervisor
+
+# 2. 检查可执行文件是否存在
+ls -la /home/hello/work/project_root/test/build/fastdds_to_mqtt_bridge
+ls -la /home/hello/work/project_root/test/build/subscriber
+
+# 3. 复制supervisor配置文件
+sudo cp /home/hello/work/project_root/scripts/8803_dds_to_mqtt.conf /etc/supervisor/conf.d/
+
+# 4. 创建日志目录并设置权限
+sudo mkdir -p /var/log/supervisor
+sudo chown hello:hello /var/log/supervisor
+
+# 5. 重新加载supervisor配置
+sudo supervisorctl reread
+sudo supervisorctl update
+
+# 6. 启动服务 (按优先级顺序自动启动)
+sudo supervisorctl start fastdds_to_mqtt_bridge
+sleep 3
+sudo supervisorctl start subscriber
+
+# 7. 检查服务状态
+sudo supervisorctl status
+
+=== 日常管理命令 ===
+
+# 查看服务状态e 
+sudo supervisorctl status fastdds_to_mqtt_bridge subscriber
+
+# 启动所有服务
+sudo supervisorctl start fastdds_to_mqtt_bridge subscriber
+
+# 停止所有服务  
+sudo supervisorctl stop subscriber fastdds_to_mqtt_bridge
+
+# 重启所有服务
+sudo supervisorctl restart fastdds_to_mqtt_bridge subscriber
+
+# 查看实时日志
+sudo supervisorctl tail -f fastdds_to_mqtt_bridge
+sudo supervisorctl tail -f subscriber
+
+# 查看最近日志
+tail -n 50 /var/log/supervisor/fastdds_to_mqtt_bridge.log
+tail -n 50 /var/log/supervisor/subscriber.log
+
+# 查看错误日志
+tail -n 50 /var/log/supervisor/fastdds_to_mqtt_bridge_error.log
+tail -n 50 /var/log/supervisor/subscriber_error.log
+
+=== 故障排查命令 ===
+
+# 检查supervisor服务状态
+sudo systemctl status supervisor
+
+# 重启supervisor服务
+sudo systemctl restart supervisor
+
+# 检查配置文件语法
+sudo supervisorctl reread
+
+# 强制更新配置
+sudo supervisorctl update
+
+# 查看所有可用程序
+sudo supervisorctl avail
+
+=== 卸载清理命令 ===
+
+# 停止并移除服务
+sudo supervisorctl stop fastdds_to_mqtt_bridge subscriber
+sudo supervisorctl remove fastdds_to_mqtt_bridge subscriber
+
+# 删除配置文件
+sudo rm /etc/supervisor/conf.d/8803_dds_to_mqtt.conf
+
+# 重新加载配置
+sudo supervisorctl reread
+sudo supervisorctl update

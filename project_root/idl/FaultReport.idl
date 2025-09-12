@@ -1,0 +1,8 @@
+module remote_msgs {
+  typedef sequence<long> Int32DynamicArray;
+  
+  struct FaultReport {
+    Int32DynamicArray fault_type;
+  };
+
+};

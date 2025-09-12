@@ -1,0 +1,7 @@
+module remote_msgs {
+
+  struct StateMachineState {
+    long driving_state;
+  };
+
+};
