@@ -1,0 +1,36 @@
+=== 快速测试验证命令 ===
+
+# 执行安装前，建议先运行这些命令进行检查：
+
+# 1. 检查supervisor是否已安装
+supervisord --version
+
+# 2. 检查可执行文件
+ls -la /home/hello/work/project_root/test/build/fastdds_to_mqtt_bridge
+ls -la /home/hello/work/project_root/test/build/subscriber
+
+# 3. 检查配置文件
+ls -la /home/hello/work/project_root/scripts/8803_dds_to_mqtt.conf
+
+# 4. 验证配置文件语法 (可选)
+python3 -c "
+import configparser
+config = configparser.ConfigParser()
+config.read('/home/hello/work/project_root/scripts/8803_dds_to_mqtt.conf')
+print('✅ 配置文件语法正确')
+for section in config.sections():
+    if section.startswith('program:'):
+        program_name = section.replace('program:', '')
+        command = config.get(section, 'command', fallback='未定义')
+        priority = config.get(section, 'priority', fallback='0')
+        print(f'  - {program_name}: 优先级 {priority}')
+"
+
+# 5. 检查当前用户
+whoami
+
+# 6. 检查sudo权限
+sudo -v
+
+=== 如果上述检查都通过，再执行 supervisor_setup_commands.txt 中的安装命令 ===
+

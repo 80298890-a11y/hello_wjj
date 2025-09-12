@@ -1,0 +1,43 @@
+# 车辆配置文件
+# Vehicle Configuration File
+
+# 车辆基本信息
+vehicle:
+  # 车辆ID - 用于MQTT话题和FastDDS通信
+  vid: "10001001" #黑车
+  #vid: "10001000"   白车
+  
+  # 车辆名称
+  name: "TestVehicle_001"
+  
+  # 车辆类型
+  type: "autonomous_vehicle"
+  
+  # 车辆状态
+  status: "active"
+
+# 通信配置
+communication:
+  # MQTT配置
+  mqtt:
+    broker_host: "hellorobotaxi.cn"
+    broker_port: 11883
+    client_id_prefix: "vehicle"
+    
+  # FastDDS配置
+  fastdds:
+    domain_id: 0
+    transport_mode: "TCP"
+    
+# 系统配置
+system:
+  # 日志级别
+  log_level: "INFO"
+  
+  # 数据发送频率
+  publish_frequency: 100  # Hz
+  
+  # 超时设置
+  timeout:
+    connection: 30  # 秒
+    heartbeat: 10   # 秒
