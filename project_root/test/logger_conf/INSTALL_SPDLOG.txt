@@ -1,0 +1,9 @@
+如果需要安装 spdlog，请执行以下命令：
+
+cd /tmp
+git clone https://github.com/gabime/spdlog.git
+cd spdlog && mkdir build && cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+make -j$(nproc)
+sudo make install
+sudo ldconfig
