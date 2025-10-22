@@ -28,7 +28,6 @@ void signal_handler(int signal) {
 std::string get_topic_log_path(const std::string& topic) {
     if (topic.find("/handshake/request") == 0) return "handshake/request";
     if (topic.find("/vehicle/control_cmd") == 0) return "vehicle/control_cmd";
-    if (topic.find("tsp/command") == 0) return "tsp/command";
     std::string path = topic;
     if (path.front() == '/') path = path.substr(1);
     std::replace(path.begin(), path.end(), '/', '_');
@@ -80,30 +79,17 @@ std::string build_json_message(const std::string& topic, const std::map<std::str
     json << "{";
     bool first = true;
     
-    if (topic.find("tsp/command/") == 0) {
-        for (const auto& [key, value] : params) {
-            if (!first) json << ",";
-            json << "\"" << key << "\":";
-            if (key == "action") json << "\"start\"";
-            else if (key == "module") json << "\"noa\"";
-            else json << "\"" << value << "\"";
-            first = false;
-        }
+    for (const auto& [key, value] : params) {
         if (!first) json << ",";
-        json << "\"timestamp\":" << getCurrentTimestamp();
-    } else {
-        for (const auto& [key, value] : params) {
-            if (!first) json << ",";
-            if (key == "timestamp") {
-                json << "\"" << key << "\":" << getCurrentTimestamp();
-            } else if (key == "vehicle_instruction_takeover_timestamp") {
-                // 保留原始时间戳，转换为整数
-                json << "\"" << key << "\":" << static_cast<uint64_t>(value);
-            } else {
-                json << "\"" << key << "\":" << value;
-            }
-            first = false;
+        if (key == "timestamp") {
+            json << "\"" << key << "\":" << getCurrentTimestamp();
+        } else if (key == "vehicle_instruction_takeover_timestamp") {
+            // 保留原始时间戳，转换为整数
+            json << "\"" << key << "\":" << static_cast<uint64_t>(value);
+        } else {
+            json << "\"" << key << "\":" << value;
         }
+        first = false;
     }
     
     if (!first) json << ",";
@@ -187,8 +173,7 @@ std::string normalize_topic(const std::string& topic) {
     if (topic.find('/') != std::string::npos) return topic;
     static std::map<std::string, std::string> topics = {
         {"handshake_request", "/handshake/request"},
-        {"control_cmd", "/vehicle/control_cmd"}, 
-        {"tsp_command", "tsp/command/sender_test"}
+        {"control_cmd", "/vehicle/control_cmd"}
     };
     auto it = topics.find(topic);
     std::string base_topic = it != topics.end() ? it->second : "/" + topic;

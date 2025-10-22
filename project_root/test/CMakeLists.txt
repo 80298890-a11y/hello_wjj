@@ -8,9 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 设置FastDDS 2.6.10路径 - 使用实际安装路径
 set(CMAKE_PREFIX_PATH "/usr/local" ${CMAKE_PREFIX_PATH})
 
-# 查找依赖包 - FastDDS 2.6.10使用fastrtps包名
-find_package(fastrtps REQUIRED)
-find_package(fastcdr REQUIRED)
+# 查找依赖包 - FastDDS 2.6.10使用fastrtps包名（可选，仅部分程序需要）
+find_package(fastrtps QUIET)
+find_package(fastcdr QUIET)
 
 # 查找 spdlog
 find_package(spdlog REQUIRED)
@@ -130,28 +130,6 @@ target_link_libraries(mqtt_to_fastdds_bridge
     universal_logger
 )
 
-# 已删除的程序: tsp_forwarder, mqtt_simulator, data_processor - 由tsp_command_processor替代
-
-# 编译tsp_command_processor (TSP命令处理器)
-add_executable(tsp_command_processor tsp_command_processor.cpp)
-target_link_libraries(tsp_command_processor
-    pthread
-    mosquitto
-    stdc++fs
-    ${JSONCPP_LIBRARIES}
-    universal_logger
-)
-
-# test_action_stop已删除
-
-# 编译local_to_remote_mqtt_forwarder (本地MQTT到远程MQTT转发器)
-add_executable(local_to_remote_mqtt_forwarder local_to_remote_mqtt_forwarder.cpp)
-target_link_libraries(local_to_remote_mqtt_forwarder
-    pthread
-    mosquitto
-    universal_logger
-)
-
 # 编译bridge_forwarder (MQTT程序4)
 add_executable(bridge_forwarder bridge_forwarder.cpp)
 target_link_libraries(bridge_forwarder
@@ -202,28 +180,4 @@ target_link_libraries(vehicle_instruction_distance_time
     universal_logger
 )
 
-# 编译noa_info (TSP字段提取器)
-add_executable(noa_info noa_info.cpp)
-target_link_libraries(noa_info
-    pthread
-    mosquitto
-    ${JSONCPP_LIBRARIES}
-    ${YAML_CPP_LIBRARIES}
-    universal_logger
-)
-
-# 编译vehicle_uplink_simulator (车端上行模拟器) - 文件不存在，暂时注释
-# add_executable(vehicle_uplink_simulator vehicle_uplink_simulator.cpp)
-# target_include_directories(vehicle_uplink_simulator PRIVATE ${FASTDDS_LIB_DIR}/include)
-# target_link_libraries(vehicle_uplink_simulator
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/Handshake/Handshake.cxx
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/Handshake/HandshakePubSubTypes.cxx
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/VehicleStatus/VehicleStatus.cxx
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/VehicleStatus/VehicleStatusPubSubTypes.cxx
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/RemoteControl/RemoteControl.cxx
-#     ${CMAKE_CURRENT_SOURCE_DIR}/../generated_types/RemoteControl/RemoteControlPubSubTypes.cxx
-#     fastrtps 
-#     fastcdr
-#     pthread
-# )
 
